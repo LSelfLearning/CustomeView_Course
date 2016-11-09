@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:custom="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.imooc.lewishstart.topbar.MainActivity">
+    <com.imooc.lewishstart.topbar.TopBar
+        android:id="@+id/topbar_main"
+        android:layout_height="40dp"
+        android:layout_width="match_parent"
+        custom:titleContent="HelloWorld"
+        custom:titleTextcolor="#000000"
+        custom:titleTextSize="10sp"
+
+        custom:leftBackground="#c7edcc"
+        custom:leftText="Pre"
+        custom:leftTextColor="#000000"
+
+        custom:rightBackground="#c7edcc"
+        custom:rightText="Pre"
+        custom:rightTextColor="#000000"
+
+      ></com.imooc.lewishstart.topbar.TopBar>
+</RelativeLayout>

@@ -1,0 +1,18 @@
+[
+    {
+        "merged": "E:\\GitHub\\CustomeView_Course\\EventTest3\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\girl2.jpg",
+        "source": "E:\\GitHub\\CustomeView_Course\\EventTest3\\src\\main\\res\\drawable-hdpi\\girl2.jpg"
+    },
+    {
+        "merged": "E:\\GitHub\\CustomeView_Course\\EventTest3\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\default1.jpg",
+        "source": "E:\\GitHub\\CustomeView_Course\\EventTest3\\src\\main\\res\\drawable-hdpi\\default1.jpg"
+    },
+    {
+        "merged": "E:\\GitHub\\CustomeView_Course\\EventTest3\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\girl3.jpg",
+        "source": "E:\\GitHub\\CustomeView_Course\\EventTest3\\src\\main\\res\\drawable-hdpi\\girl3.jpg"
+    },
+    {
+        "merged": "E:\\GitHub\\CustomeView_Course\\EventTest3\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\girl1.jpg",
+        "source": "E:\\GitHub\\CustomeView_Course\\EventTest3\\src\\main\\res\\drawable-hdpi\\girl1.jpg"
+    }
+]

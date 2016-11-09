@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="alpha">#0099CCFF</color>
+    <color name="blue">#3399CCFF</color>
+    <string name="app_name">网易练习一</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="menu_settings">Settings</string>
+    <style name="AppBaseTheme" parent="android:Theme.Light">
+        <!--
+            Theme customizations available in newer API levels can go in
+            res/values-vXX/styles.xml, while customizations related to
+            backward-compatibility can go here.
+        -->
+    </style>
+    <style name="AppTheme" parent="AppBaseTheme">
+        <!-- All customizations that are NOT specific to a particular API-level can go here. -->
+    </style>
+    <style name="menu_style">
+	    <item name="android:layout_width">match_parent</item>
+	    <item name="android:layout_height">wrap_content</item>
+	    <item name="android:drawablePadding">10dp</item>
+	    <item name="android:gravity">center_vertical</item>
+	    <item name="android:paddingBottom">10dp</item>
+	    <item name="android:background">@drawable/item_menu_bg</item>
+	    <item name="android:paddingLeft">20dp</item>
+	    <item name="android:paddingTop">10dp</item>
+	    <item name="android:textColor">@android:color/white</item>
+	    <item name="android:textSize">23sp</item>
+	      <item name="android:clickable">true</item>
+	    <item name="android:onClick">onClick</item>
+	</style>
+</resources>

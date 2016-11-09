@@ -1,0 +1,165 @@
+[
+    {
+        "outputFile": "E:\\GitHub\\CustomeView_Course\\07侧滑菜单\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values\\values.xml",
+        "map": [
+            {
+                "to": {
+                    "startLine": 2,
+                    "startColumn": 4,
+                    "startOffset": 55,
+                    "endColumn": 41,
+                    "endOffset": 92
+                },
+                "from": {
+                    "file": "E:\\GitHub\\CustomeView_Course\\07侧滑菜单\\src\\main\\res\\values\\colors.xml",
+                    "position": {
+                        "startLine": 4,
+                        "startColumn": 4,
+                        "startOffset": 105,
+                        "endColumn": 41,
+                        "endOffset": 142
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 3,
+                    "startColumn": 4,
+                    "startOffset": 97,
+                    "endColumn": 40,
+                    "endOffset": 133
+                },
+                "from": {
+                    "file": "E:\\GitHub\\CustomeView_Course\\07侧滑菜单\\src\\main\\res\\values\\colors.xml",
+                    "position": {
+                        "startLine": 3,
+                        "startColumn": 4,
+                        "startOffset": 63,
+                        "endColumn": 40,
+                        "endOffset": 99
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 4,
+                    "startColumn": 4,
+                    "startOffset": 138,
+                    "endColumn": 42,
+                    "endOffset": 176
+                },
+                "from": {
+                    "file": "E:\\GitHub\\CustomeView_Course\\07侧滑菜单\\src\\main\\res\\values\\strings.xml",
+                    "position": {
+                        "startLine": 3,
+                        "startColumn": 4,
+                        "startOffset": 59,
+                        "endColumn": 42,
+                        "endOffset": 97
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 5,
+                    "startColumn": 4,
+                    "startOffset": 181,
+                    "endColumn": 52,
+                    "endOffset": 229
+                },
+                "from": {
+                    "file": "E:\\GitHub\\CustomeView_Course\\07侧滑菜单\\src\\main\\res\\values\\strings.xml",
+                    "position": {
+                        "startLine": 4,
+                        "startColumn": 4,
+                        "startOffset": 103,
+                        "endColumn": 52,
+                        "endOffset": 151
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 6,
+                    "startColumn": 4,
+                    "startOffset": 234,
+                    "endColumn": 50,
+                    "endOffset": 280
+                },
+                "from": {
+                    "file": "E:\\GitHub\\CustomeView_Course\\07侧滑菜单\\src\\main\\res\\values\\strings.xml",
+                    "position": {
+                        "startLine": 5,
+                        "startColumn": 4,
+                        "startOffset": 157,
+                        "endColumn": 50,
+                        "endOffset": 203
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 7,
+                    "startColumn": 4,
+                    "startOffset": 285,
+                    "endLine": 13,
+                    "endColumn": 12,
+                    "endOffset": 571
+                },
+                "from": {
+                    "file": "E:\\GitHub\\CustomeView_Course\\07侧滑菜单\\src\\main\\res\\values\\styles.xml",
+                    "position": {
+                        "startLine": 6,
+                        "startColumn": 4,
+                        "startOffset": 192,
+                        "endLine": 12,
+                        "endColumn": 12,
+                        "endOffset": 484
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 14,
+                    "startColumn": 4,
+                    "startOffset": 576,
+                    "endLine": 16,
+                    "endColumn": 12,
+                    "endOffset": 731
+                },
+                "from": {
+                    "file": "E:\\GitHub\\CustomeView_Course\\07侧滑菜单\\src\\main\\res\\values\\styles.xml",
+                    "position": {
+                        "startLine": 15,
+                        "startColumn": 4,
+                        "startOffset": 525,
+                        "endLine": 17,
+                        "endColumn": 12,
+                        "endOffset": 682
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 17,
+                    "startColumn": 4,
+                    "startOffset": 736,
+                    "endLine": 30,
+                    "endColumn": 9,
+                    "endOffset": 1429
+                },
+                "from": {
+                    "file": "E:\\GitHub\\CustomeView_Course\\07侧滑菜单\\src\\main\\res\\values\\styles.xml",
+                    "position": {
+                        "startLine": 22,
+                        "startColumn": 1,
+                        "startOffset": 775,
+                        "endLine": 35,
+                        "endColumn": 9,
+                        "endOffset": 1481
+                    }
+                }
+            }
+        ]
+    }
+]

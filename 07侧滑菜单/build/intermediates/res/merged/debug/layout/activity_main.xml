@@ -1,0 +1,19 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity" >
+
+    <com.atguigu.slideone.MySlideView
+        android:id="@+id/msv"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+        
+        <include layout="@layout/main_menu"/>
+        
+        <include layout="@layout/main_contant"/>
+        
+        
+    </com.atguigu.slideone.MySlideView>
+
+</RelativeLayout>

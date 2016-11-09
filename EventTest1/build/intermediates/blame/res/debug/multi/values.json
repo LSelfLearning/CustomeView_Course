@@ -1,0 +1,45 @@
+[
+    {
+        "outputFile": "E:\\GitHub\\CustomeView_Course\\EventTest1\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values\\values.xml",
+        "map": [
+            {
+                "to": {
+                    "startLine": 2,
+                    "startColumn": 4,
+                    "startOffset": 55,
+                    "endColumn": 47,
+                    "endOffset": 98
+                },
+                "from": {
+                    "file": "E:\\GitHub\\CustomeView_Course\\EventTest1\\src\\main\\res\\values\\strings.xml",
+                    "position": {
+                        "startLine": 4,
+                        "startColumn": 4,
+                        "startOffset": 127,
+                        "endColumn": 47,
+                        "endOffset": 170
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 3,
+                    "startColumn": 4,
+                    "startOffset": 103,
+                    "endColumn": 66,
+                    "endOffset": 165
+                },
+                "from": {
+                    "file": "E:\\GitHub\\CustomeView_Course\\EventTest1\\src\\main\\res\\values\\strings.xml",
+                    "position": {
+                        "startLine": 3,
+                        "startColumn": 4,
+                        "startOffset": 59,
+                        "endColumn": 66,
+                        "endOffset": 121
+                    }
+                }
+            }
+        ]
+    }
+]
