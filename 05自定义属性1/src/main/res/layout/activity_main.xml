@@ -15,7 +15,7 @@
         android:layout_height="match_parent"
         app:my_age="100"
         app:my_bg="@drawable/jtx"
-        app:my_name="android0220"
+        app:my_name="Lewish"
 
         />
 </RelativeLayout>

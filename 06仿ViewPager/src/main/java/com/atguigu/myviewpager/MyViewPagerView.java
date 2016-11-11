@@ -156,17 +156,15 @@ public class MyViewPagerView extends ViewGroup {
      */
     @Override
     public boolean onInterceptTouchEvent(MotionEvent ev) {
-        boolean result = false;
-//		return super.onInterceptTouchEvent(ev);
+        detector.onTouchEvent(ev);
+        boolean isIntercept = false;
         switch (ev.getAction()) {
             case MotionEvent.ACTION_DOWN:
-                detector.onTouchEvent(ev);
                 System.out.println("onInterceptTouchEvent--------ACTION_DOWN-");
                 //1.记录坐标
                 downX = ev.getRawX();
                 downY = ev.getRawY();
                 startX = ev.getX();
-
                 break;
             case MotionEvent.ACTION_MOVE:
                 System.out.println("onInterceptTouchEvent--------ACTION_MOVE-");
@@ -176,23 +174,20 @@ public class MyViewPagerView extends ViewGroup {
                 //3.计算移动的距离
                 float distanceX = Math.abs(newX - downX);
                 float distanceY = Math.abs(newY - downY);
-                //4.比较大小（谁大就代表在他的方向上滑动）
+                //4.比较大小（谁大就代表在他的方向上滑动）此处根据业务逻辑判断
                 if (distanceX > distanceY) {
                     //返回true:
                     //如果返回true,事件中断，将会调用当前View的onTouchEvent()方法
-                    result = true;
+                    isIntercept = true;
                 }
-
                 break;
             case MotionEvent.ACTION_UP:
                 System.out.println("onInterceptTouchEvent--------ACTION_UP-");
-
                 break;
-
             default:
                 break;
         }
-        return result;
+        return isIntercept;
     }
 
     @Override
@@ -206,27 +201,18 @@ public class MyViewPagerView extends ViewGroup {
                 System.out.println("onTouchEvent--------ACTION_DOWN-");
                 //1.记录坐标
                 startX = event.getX();//只能用getX();
-
-
                 break;
-
             case MotionEvent.ACTION_MOVE://手指在屏幕上移动的时候
-
                 System.out.println("onTouchEvent--------ACTION_MOVE-");
-
-
                 break;
-
             case MotionEvent.ACTION_UP://手指离开屏幕的时候
                 System.out.println("onTouchEvent--------ACTION_UP-");
                 //2.来到新的坐标
                 float newX = event.getX();
-
                 //3.计算偏移量
                 float distanceX = newX - startX;
                 //要移动到对应的页面
                 int tempIndex = currentIndex;
-
                 if (distanceX > getWidth() / 2) {
                     //上一个页面
                     tempIndex--;
@@ -234,12 +220,9 @@ public class MyViewPagerView extends ViewGroup {
                     //显示下一个页面
                     tempIndex++;
                 }
-
                 //根据下标位置移动到对应的页面
                 moveTo(tempIndex);
-
                 break;
-
             default:
                 break;
         }
@@ -257,18 +240,15 @@ public class MyViewPagerView extends ViewGroup {
         if (tempIndex < 0) {
             tempIndex = 0;
         }
-
         if (tempIndex > getChildCount() - 1) {
             tempIndex = getChildCount() - 1;
         }
         //在这里是修正过的
         currentIndex = tempIndex;
-
         //判断为空
         if (changeListener != null) {
             changeListener.moveTo(currentIndex);
         }
-
         //用于坐标来移动
         //瞬间移动
 //		scrollTo(currentIndex*getWidth(), 0);
@@ -279,24 +259,18 @@ public class MyViewPagerView extends ViewGroup {
 //		scroller.startScroll(getScrollX(), 0, distanceX, 0);
 //		System.out.println(" Math.abs(distanceX)==="+ Math.abs(distanceX));
         scroller.startScroll(getScrollX(), 0, distanceX, 0, Math.abs(distanceX));
-
         //刷新页面
         invalidate();//会导致onDraw方法执行;computeScroll()
-
-
     }
 
     @Override
     public void computeScroll() {//这是View里的方法
-        super.computeScroll();
         //结束的时刻-这一小段
         if (scroller.computeScrollOffset()) {
             //移动这一小段后对应的坐标
-            float currX = scroller.getCurrX();
-            scrollTo((int) currX, 0);
+            scrollTo((int) scroller.getCurrX(), 0); //根据具体业务修改
             //刷新页面
-            invalidate();//会导致onDraw方法执行;computeScroll()
+            postInvalidate();//会导致onDraw方法执行;computeScroll()
         }
     }
-
 }

@@ -4,9 +4,6 @@ import android.animation.ObjectAnimator;
 import android.view.ViewGroup;
 
 /**
- * 作者：杨光福 on 2016/5/14 10:23
- * 微信：yangguangfu520
- * QQ号：541433511
  * 作用：显示和隐藏指定控件
  */
 public class Tools {

@@ -9,11 +9,9 @@ import android.util.AttributeSet;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.ViewConfiguration;
 
 /**
- * 作者：杨光福 on 2016/5/14 16:27
- * 微信：yangguangfu520
- * QQ号：541433511
  * 一个视图从创建到显示过程中的主要方法
  * //1.构造方法实例化类
  * //2.测量-measure(int,int)-->onMeasure();
@@ -62,15 +60,25 @@ public class MyToggleButton extends View implements View.OnClickListener {
     }
 
     /**
-     * 视图的测量
-     *
+     * 视图的测量 (支持wrap_content)
      * @param widthMeasureSpec
      * @param heightMeasureSpec
      */
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
-//        super.onMeasure(widthMeasureSpec, heightMeasureSpec);
-        setMeasuredDimension(backgroundBitmap.getWidth(), backgroundBitmap.getHeight());
+        int widthSpecMode = MeasureSpec.getMode(widthMeasureSpec);
+        int wideSpecSize = MeasureSpec.getSize(widthMeasureSpec);
+
+        int heightSpecMode = MeasureSpec.getMode(heightMeasureSpec);
+        int heightSpecSize = MeasureSpec.getSize(heightMeasureSpec);
+
+        if(widthSpecMode==MeasureSpec.AT_MOST&&heightSpecMode==MeasureSpec.AT_MOST) {
+            setMeasuredDimension(backgroundBitmap.getWidth(), backgroundBitmap.getHeight());
+        }else if(widthSpecMode==MeasureSpec.AT_MOST) {
+            setMeasuredDimension(backgroundBitmap.getWidth(),heightSpecSize);
+        }else if(heightSpecMode==MeasureSpec.AT_MOST) {
+            setMeasuredDimension(wideSpecSize,backgroundBitmap.getHeight());
+        }
     }
 
     /**
@@ -80,7 +88,6 @@ public class MyToggleButton extends View implements View.OnClickListener {
      */
     @Override
     protected void onDraw(Canvas canvas) {
-//        super.onDraw(canvas);
         canvas.drawBitmap(backgroundBitmap, 0, 0, paint);
         canvas.drawBitmap(slidingBitmap, slideLeft, 0, paint);
     }
@@ -144,8 +151,8 @@ public class MyToggleButton extends View implements View.OnClickListener {
                 //6.数据还原
                 startX = event.getX();
 
-                if (Math.abs(endX - lastX) > 5) {
-                    //滑动
+                if (Math.abs(endX - lastX) > ViewConfiguration.get(getContext()).getScaledTouchSlop()) {
+                    //滑动 TouchSlop:系统所能识别出的被认为是滑动的最小距离
                     isEnableClick = false;
                 }
 

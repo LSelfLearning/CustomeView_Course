@@ -11,9 +11,6 @@ import android.util.AttributeSet;
 import android.view.View;
 
 /**
- * 作者：杨光福 on 2016/5/16 09:41
- * 微信：yangguangfu520
- * QQ号：541433511
  * 作用：自定义属性
  */
 public class MyAttributeView extends View {

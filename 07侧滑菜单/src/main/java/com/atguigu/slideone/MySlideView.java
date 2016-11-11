@@ -19,7 +19,6 @@ public class MySlideView extends ViewGroup{
 		super(context, attrs);
 		scroller = new Scroller(context);
 	}
-
 	@Override
 	protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
 		super.onMeasure(widthMeasureSpec, heightMeasureSpec);
@@ -74,16 +73,13 @@ public class MySlideView extends ViewGroup{
 				isMenuShow = true;
 			}
 			flushState();
-			
 			break;
 		}
 		return true; 
 	}
 
 	private void flushState() {
-		
 		int distance = 0;
-		
 		if(!isMenuShow){
 //			scrollTo(0,0);
 			distance = 0-getScrollX();
@@ -91,7 +87,6 @@ public class MySlideView extends ViewGroup{
 //			scrollTo(-menu.getWidth(),0);
 			distance = -menu.getWidth()-getScrollX();
 		}
-		
 		scroller.startScroll(getScrollX(), 0, distance, 0);
 		invalidate();
 		

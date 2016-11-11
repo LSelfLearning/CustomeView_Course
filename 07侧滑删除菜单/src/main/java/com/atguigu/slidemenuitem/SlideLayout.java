@@ -4,12 +4,10 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.ViewConfiguration;
 import android.widget.FrameLayout;
 import android.widget.Scroller;
 /**
- * 作者：杨光福 on 2016/4/9 07:43
- * 微信：yangguangfu520
- * QQ号：541433511
  * 作用：侧滑菜单的item
  * 1.正常显示item代码实现
  * 1.1).得到子View对象（ContentView,MenuView）-->onFinishInflate()
@@ -71,7 +69,8 @@ public class SlideLayout extends FrameLayout {
     @Override
     protected void onLayout(boolean changed, int left, int top, int right, int bottom) {
         super.onLayout(changed, left, top, right, bottom);
-        menuView.layout(contentWidth, 0, contentWidth + menuWidth, ViewHeight);//
+        contentView.layout(0,0,contentWidth,ViewHeight);
+        menuView.layout(contentWidth, 0, contentWidth + menuWidth, ViewHeight);
     }
 
     /**
@@ -90,36 +89,32 @@ public class SlideLayout extends FrameLayout {
             case MotionEvent.ACTION_DOWN:
                 //1.记录起始坐标
                 downX = lastX = eventX;
-                downY = lastY = eventX;
+                downY = lastY = eventY;
                 break;
             case MotionEvent.ACTION_MOVE:
                 //2.计算偏移量
-
                 int distenceX = eventX - lastX;
                 int distenceY = eventY - lastY;
-                int toScrollX = getScrollX() - distenceX;
+                /************************具体业务具体实现************************/
+                int toScrollX = getScrollX() - distenceX; // 很绕的一句程序
+                int dX = Math.abs(eventX - downX);
+                int dY = Math.abs(eventY - downY);
+
+                if(dX > dY&& dX > ViewConfiguration.get(getContext()).getScaledTouchSlop()){
+                    getParent().requestDisallowInterceptTouchEvent(true);
+                }
                 System.out.println(toScrollX);
-                //屏蔽非法值
+                //限位
                 if (toScrollX < 0) {
                     toScrollX = 0;
                 }else if(toScrollX > menuWidth){
                     toScrollX = menuWidth;
                 }
-
-//                scrollTo(toScrollX, 0);//也可以
                 scrollTo(toScrollX, getScrollY());
-
+                /****************************************************************/
                 //重新赋值
                 lastX = eventX;
-
-                int dX = Math.abs(eventX - downX);
-                int dY = Math.abs(eventY - downY);
-
-                if(dX > dY&& dX >8){
-                    getParent().requestDisallowInterceptTouchEvent(true);
-                }
-
-
+                lastY = eventY;
                 break;
             case MotionEvent.ACTION_UP:
                // 2.3).当up的时候，计算总的偏移量，判断是平滑的关闭或者打开
@@ -182,7 +177,7 @@ public class SlideLayout extends FrameLayout {
             case MotionEvent.ACTION_MOVE:
                 //2.计算偏移量
                 int dX = Math.abs(eventX - downX);
-                if( dX >8){
+                if( dX >ViewConfiguration.get(getContext()).getScaledTouchSlop()){
                     intercept = true;
                 }
 

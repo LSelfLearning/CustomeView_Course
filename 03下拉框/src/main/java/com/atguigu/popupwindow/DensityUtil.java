@@ -2,12 +2,6 @@ package com.atguigu.popupwindow;
 
 import android.content.Context;
 
-/**
- * 作者：杨光福 on 2016/5/14 16:06
- * 微信：yangguangfu520
- * QQ号：541433511
- * 作用：xxxx
- */
 public class DensityUtil {
     /**
      * 根据手机的分辨率从 dip 的单位 转成为 px(像素)
