@@ -25,6 +25,7 @@
       <module fileurl="file://$PROJECT_DIR$/self06仿viewpager/self06仿viewpager.iml" filepath="$PROJECT_DIR$/self06仿viewpager/self06仿viewpager.iml" />
       <module fileurl="file://$PROJECT_DIR$/self07侧滑删除菜单/self07侧滑删除菜单.iml" filepath="$PROJECT_DIR$/self07侧滑删除菜单/self07侧滑删除菜单.iml" />
       <module fileurl="file://$PROJECT_DIR$/self09联系人索引/self09联系人索引.iml" filepath="$PROJECT_DIR$/self09联系人索引/self09联系人索引.iml" />
+      <module fileurl="file://$PROJECT_DIR$/test/test.iml" filepath="$PROJECT_DIR$/test/test.iml" />
     </modules>
   </component>
 </project>

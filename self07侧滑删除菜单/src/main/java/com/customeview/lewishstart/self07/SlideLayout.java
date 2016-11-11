@@ -146,11 +146,13 @@ public class SlideLayout extends LinearLayout {
 
     @Override
     public void computeScroll() {
-        if (scroller.computeScrollOffset()) {
-            scrollTo(scroller.getCurrX(), getScrollY());
-            invalidate();
+        super.computeScroll();
+        if(scroller.computeScrollOffset()){
+            scrollTo(scroller.getCurrX(),0);
+            invalidate();//强制重绘制
         }
     }
+
     public interface SildeStateChangeListener{
         public void onOpenMenu(SlideLayout slideLayout);
         public void onCloseMenu(SlideLayout slideLayout);
