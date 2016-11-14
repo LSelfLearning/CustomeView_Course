@@ -11,8 +11,9 @@ import android.widget.ListView;
  */
 
 public class MyListView extends ListView {
-    private float mLastX;
-    private float mLastY;
+    private static final String TAG = "MyListView";
+    private float mDownX;
+    private float mDownY;
     public MyListView(Context context) {
         this(context,null);
     }
@@ -27,29 +28,25 @@ public class MyListView extends ListView {
 
     @Override
     public boolean onInterceptTouchEvent(MotionEvent ev) {
-        boolean isIntercept = false;
+        boolean isIntercept = super.onInterceptTouchEvent(ev);
         float x = ev.getRawX();
         float y = ev.getRawY();
         switch (ev.getAction()) {
             case MotionEvent.ACTION_DOWN :
-                isIntercept = false;
+                mDownX = x;
+                mDownY = y;
                 break;
             case MotionEvent.ACTION_MOVE :
-                float deltaX = x - mLastX;
-                float deltaY = y - mLastY;
+                float deltaX = x - mDownX;
+                float deltaY = y - mDownY;
 
                 if(Math.abs(deltaY)>Math.abs(deltaX)&&Math.abs(deltaY)> ViewConfiguration.get(getContext()).getScaledTouchSlop()) {
-                    isIntercept = true;
-                }else {
-                    isIntercept = false;
+                    isIntercept =  true;
                 }
                 break;
             case MotionEvent.ACTION_UP :
-                isIntercept = false;
                 break;
         }
-        mLastX = x;
-        mLastY = y;
         return isIntercept;
     }
 }
