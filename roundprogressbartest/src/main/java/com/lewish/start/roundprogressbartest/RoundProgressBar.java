@@ -19,7 +19,6 @@ public class RoundProgressBar extends View {
      * 画笔对象的引用
      */
     private Paint paint;
-
     /**
      * 圆环的颜色
      */
@@ -120,7 +119,6 @@ public class RoundProgressBar extends View {
         paint.setStrokeWidth(roundWidth); //设置圆环的宽度
         paint.setAntiAlias(true);  //消除锯齿
         canvas.drawCircle(centre, centre, radius, paint); //画出圆环
-
         Log.e("log", centre + "");
 
         /**
@@ -174,6 +172,15 @@ public class RoundProgressBar extends View {
     }
 
     public void dynamicDraw(float progress){
+//        ValueAnimator animator = ValueAnimator.ofFloat(0, 360 * progress / max);
+//        animator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
+//            @Override
+//            public void onAnimationUpdate(ValueAnimator animation) {
+//                float animatedValue = (float) animation.getAnimatedValue();
+//
+//            }
+//        });
+
         ValueAnimator valueAnimator = ValueAnimator.ofFloat(0,progress);
         valueAnimator.setDuration(3000);
         valueAnimator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
@@ -289,4 +296,29 @@ public class RoundProgressBar extends View {
         this.type = type;
     }
 
+    public class Point{
+        private float x;
+        private float y;
+
+        public Point(float x, float y) {
+            this.x = x;
+            this.y = y;
+        }
+
+        public float getX() {
+            return x;
+        }
+
+        public void setX(float x) {
+            this.x = x;
+        }
+
+        public float getY() {
+            return y;
+        }
+
+        public void setY(float y) {
+            this.y = y;
+        }
+    }
 }
