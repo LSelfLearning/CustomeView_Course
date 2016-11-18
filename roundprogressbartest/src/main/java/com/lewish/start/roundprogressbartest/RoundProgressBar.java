@@ -78,6 +78,7 @@ public class RoundProgressBar extends View {
 
     @Override
     protected void onDraw(Canvas canvas) {
+        int padding = getPaddingRight();
         /**
          * 画最外层的大圆环
          */
@@ -142,10 +143,11 @@ public class RoundProgressBar extends View {
         float x = (float) (radius * (1 + Math.sin(degress)));
         float y = (float) (radius * (1 - Math.cos(degress)));
         paint.setColor(Color.RED); //设置圆环的颜色
+        paint.setAlpha(50);
         paint.setStyle(Paint.Style.FILL); //设置实心
         paint.setStrokeWidth(2); //设置圆环的宽度
         paint.setAntiAlias(true);  //消除锯齿
-        canvas.drawCircle(x, y, 10, paint); //画出圆环
+        canvas.drawCircle(x, y, 30, paint); //画出圆环
     }
 
     public void dynamicDraw(float progress){
