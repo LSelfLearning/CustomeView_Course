@@ -79,11 +79,16 @@ public class RoundProgressBar extends View {
     @Override
     protected void onDraw(Canvas canvas) {
         int padding = getPaddingRight();
+        int width = getWidth() - padding*2;
+        int height = getHeight() - padding * 2;
+        int radius1 = Math.min(width, height) / 2;
         /**
          * 画最外层的大圆环
          */
-        int centre = getWidth() / 2; //获取圆心的x坐标
-        int radius = (int) (centre - roundWidth / 2); //圆环的半径
+//        int centre = width / 2 + padding; //获取圆心的x坐标
+//        int radius = (int) (radius1 - roundWidth / 2); //圆环的半径
+        int centre = getWidth()/2;
+        int radius = (int) (centre-roundWidth/2);
         paint.setColor(roundColor); //设置圆环的颜色
         paint.setStyle(Paint.Style.STROKE); //设置空心
         paint.setStrokeWidth(roundWidth); //设置圆环的宽度
@@ -140,8 +145,8 @@ public class RoundProgressBar extends View {
         }
         
         double degress = 2*Math.PI * progress / max;
-        float x = (float) (radius * (1 + Math.sin(degress)));
-        float y = (float) (radius * (1 - Math.cos(degress)));
+        float x = (float) ((radius)* (1 + Math.sin(degress)));
+        float y = (float) ((radius) * (1 - Math.cos(degress)));
         paint.setColor(Color.RED); //设置圆环的颜色
         paint.setAlpha(50);
         paint.setStyle(Paint.Style.FILL); //设置实心
