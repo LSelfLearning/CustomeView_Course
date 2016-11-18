@@ -11,6 +11,6 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         roundProgressBar = (RoundProgressBar)findViewById(R.id.round_progress_bar);
-        roundProgressBar.dynamicDraw(50);
+        roundProgressBar.dynamicDraw(100);
     }
 }
