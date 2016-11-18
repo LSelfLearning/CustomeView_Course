@@ -8,9 +8,6 @@
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
-            <option value="$PROJECT_DIR$/01优酷菜单" />
-            <option value="$PROJECT_DIR$/02广告条效果" />
-            <option value="$PROJECT_DIR$/03下拉框" />
             <option value="$PROJECT_DIR$/04自定义开关" />
             <option value="$PROJECT_DIR$/05自定义属性1" />
             <option value="$PROJECT_DIR$/05自定义属性2" />
@@ -19,13 +16,8 @@
             <option value="$PROJECT_DIR$/07侧滑菜单" />
             <option value="$PROJECT_DIR$/08水波纹完整版" />
             <option value="$PROJECT_DIR$/09联系人快速索引" />
-            <option value="$PROJECT_DIR$/EventTest1" />
-            <option value="$PROJECT_DIR$/EventTest2" />
-            <option value="$PROJECT_DIR$/EventTest3" />
             <option value="$PROJECT_DIR$/ScrollTest" />
             <option value="$PROJECT_DIR$/roundprogressbartest" />
-            <option value="$PROJECT_DIR$/self02广告条效果" />
-            <option value="$PROJECT_DIR$/self03下拉框" />
             <option value="$PROJECT_DIR$/self04自定义开关" />
             <option value="$PROJECT_DIR$/self05自定义属性1" />
             <option value="$PROJECT_DIR$/self06仿viewpager" />

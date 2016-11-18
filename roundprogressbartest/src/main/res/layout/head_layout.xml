@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+    <!--<LinearLayout-->
+        <!--android:layout_width="0dp"-->
+        <!--android:layout_weight="1"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:gravity="center">-->
+        <!--<TextView-->
+            <!--android:id="@+id/tv1"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--style="@style/headstyle"-->
+            <!--android:text="新手专区"-->
+            <!--android:layout_height="wrap_content" />-->
+    <!--</LinearLayout>-->
+
+    <!--<LinearLayout-->
+        <!--android:layout_width="0dp"-->
+        <!--android:layout_weight="1"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:gravity="center">-->
+        <!--<TextView-->
+            <!--android:id="@+id/tv2"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--style="@style/headstyle"-->
+            <!--android:text="银多利"-->
+            <!--android:layout_height="wrap_content" />-->
+    <!--</LinearLayout>-->
+    <!--<LinearLayout-->
+        <!--android:layout_width="0dp"-->
+        <!--android:layout_weight="1"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:gravity="center">-->
+        <!--<TextView-->
+            <!--android:id="@+id/tv3"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--style="@style/headstyle"-->
+            <!--android:text="月盈利"-->
+            <!--android:layout_height="wrap_content" />-->
+    <!--</LinearLayout>-->
+    <!--<LinearLayout-->
+        <!--android:layout_width="0dp"-->
+        <!--android:layout_weight="1"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:gravity="center">-->
+        <!--<TextView-->
+            <!--android:id="@+id/tv4"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--style="@style/headstyle"-->
+            <!--android:text="谷便利"-->
+            <!--android:layout_height="wrap_content" />-->
+    <!--</LinearLayout>-->
+    <RadioGroup
+        android:id="@+id/rg_bottom_tag"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="#df1d00"
+        android:orientation="horizontal">
+        <RadioButton
+
+            android:id="@+id/rb_home"
+            style="@style/bottom_tag_style"
+            android:text="新手专区" />
+
+        <RadioButton
+            android:id="@+id/rb_category"
+            style="@style/bottom_tag_style"
+            android:text="银多利" />
+
+        <RadioButton
+            android:id="@+id/rb_inspiration"
+            style="@style/bottom_tag_style"
+            android:text="月盈利" />
+
+        <RadioButton
+            android:id="@+id/rb_purchase"
+            style="@style/bottom_tag_style"
+            android:text="谷便利" />
+    </RadioGroup>
+</LinearLayout>

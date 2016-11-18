@@ -1,4 +1,4 @@
 include ':self05自定义属性1', ':test', ':roundprogressbartest'
-include '01优酷菜单', '02广告条效果', '03下拉框', '04自定义开关', '05自定义属性1', '05自定义属性2', '06仿ViewPager', '07侧滑删除菜单', '07侧滑菜单', '08水波纹完整版', '09联系人快速索引',
-        'EventTest1', 'EventTest2', 'EventTest3', 'ScrollTest',
-        'self02广告条效果', 'self03下拉框', 'self04自定义开关', 'self06仿viewpager', 'self07侧滑删除菜单', 'self09联系人索引'
+include '04自定义开关', '05自定义属性1', '05自定义属性2', '06仿ViewPager', '07侧滑删除菜单', '07侧滑菜单', '08水波纹完整版', '09联系人快速索引',
+        'ScrollTest',
+        'self04自定义开关', 'self06仿viewpager', 'self07侧滑删除菜单', 'self09联系人索引'

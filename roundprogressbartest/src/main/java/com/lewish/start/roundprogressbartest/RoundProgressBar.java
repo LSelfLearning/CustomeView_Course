@@ -15,62 +15,28 @@ import android.view.View;
 
 
 public class RoundProgressBar extends View {
-    /**
-     * 画笔对象的引用
-     */
     private Paint paint;
-    /**
-     * 圆环的颜色
-     */
+    // 圆环的颜色
     private int roundColor;
-
-    /**
-     * 圆环进度的颜色
-     */
+    // 圆环进度的颜色   
     private int roundProgressColor;
-
-    /**
-     * 中间进度百分比的字符串的颜色
-     */
+    // 中间进度百分比的字符串的颜色   
     private int textColor;
-
-    /**
-     * 中间进度百分比的字符串的字体
-     */
+    // 中间进度百分比的字符串的字体大小
     private float textSize;
-
-    /**
-     * 圆环的宽度
-     */
+    // 圆环的宽度
     private float roundWidth;
-
-    /**
-     * 最大进度
-     */
+    // 最大进度
     private int max;
-
-    /**
-     * 当前进度
-     */
+    // 当前进度
     private float progress;
-
-    /**
-     * 状态
-     */
+    // 状态
     private int status;
-
-    /**
-     * 类型 债权， 银多利
-     */
+    // 类型 债权， 银多利
     private int type;
-    /**
-     * 是否显示中间的进度
-     */
+    // 是否显示中间的进度
     private boolean textIsDisplayable;
-
-    /**
-     * 进度的风格，实心或者空心
-     */
+    // 进度的风格，实心或者空心
     private int style;
 
     public static final int STROKE = 0;
@@ -87,6 +53,10 @@ public class RoundProgressBar extends View {
     public RoundProgressBar(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
 
+        initFromXML(context, attrs);
+    }
+
+    private void initFromXML(Context context, AttributeSet attrs) {
         paint = new Paint();
 
 
@@ -106,7 +76,6 @@ public class RoundProgressBar extends View {
         mTypedArray.recycle();
     }
 
-
     @Override
     protected void onDraw(Canvas canvas) {
         /**
@@ -119,6 +88,7 @@ public class RoundProgressBar extends View {
         paint.setStrokeWidth(roundWidth); //设置圆环的宽度
         paint.setAntiAlias(true);  //消除锯齿
         canvas.drawCircle(centre, centre, radius, paint); //画出圆环
+
         Log.e("log", centre + "");
 
         /**
@@ -144,7 +114,6 @@ public class RoundProgressBar extends View {
         float textWidth = paint.measureText(content); //测量字体宽度，我们需要根据字体的宽度设置在圆环中间
         canvas.drawText(content, centre - textWidth / 2, centre + textSize / 2, paint); //画出进度百分比
 
-
         /**
          * 画圆弧 ，画圆环的进度
          */
@@ -168,19 +137,18 @@ public class RoundProgressBar extends View {
                 break;
             }
         }
-
+        
+        double degress = 2*Math.PI * progress / max;
+        float x = (float) (radius * (1 + Math.sin(degress)));
+        float y = (float) (radius * (1 - Math.cos(degress)));
+        paint.setColor(Color.RED); //设置圆环的颜色
+        paint.setStyle(Paint.Style.FILL); //设置实心
+        paint.setStrokeWidth(2); //设置圆环的宽度
+        paint.setAntiAlias(true);  //消除锯齿
+        canvas.drawCircle(x, y, 10, paint); //画出圆环
     }
 
     public void dynamicDraw(float progress){
-//        ValueAnimator animator = ValueAnimator.ofFloat(0, 360 * progress / max);
-//        animator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
-//            @Override
-//            public void onAnimationUpdate(ValueAnimator animation) {
-//                float animatedValue = (float) animation.getAnimatedValue();
-//
-//            }
-//        });
-
         ValueAnimator valueAnimator = ValueAnimator.ofFloat(0,progress);
         valueAnimator.setDuration(3000);
         valueAnimator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
