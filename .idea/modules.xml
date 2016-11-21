@@ -2,23 +2,20 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/04自定义开关/04自定义开关.iml" filepath="$PROJECT_DIR$/04自定义开关/04自定义开关.iml" />
       <module fileurl="file://$PROJECT_DIR$/05自定义属性1/05自定义属性1.iml" filepath="$PROJECT_DIR$/05自定义属性1/05自定义属性1.iml" />
       <module fileurl="file://$PROJECT_DIR$/05自定义属性2/05自定义属性2.iml" filepath="$PROJECT_DIR$/05自定义属性2/05自定义属性2.iml" />
       <module fileurl="file://$PROJECT_DIR$/06仿ViewPager/06仿ViewPager.iml" filepath="$PROJECT_DIR$/06仿ViewPager/06仿ViewPager.iml" />
       <module fileurl="file://$PROJECT_DIR$/07侧滑删除菜单/07侧滑删除菜单.iml" filepath="$PROJECT_DIR$/07侧滑删除菜单/07侧滑删除菜单.iml" />
       <module fileurl="file://$PROJECT_DIR$/07侧滑菜单/07侧滑菜单.iml" filepath="$PROJECT_DIR$/07侧滑菜单/07侧滑菜单.iml" />
-      <module fileurl="file://$PROJECT_DIR$/08水波纹完整版/08水波纹完整版.iml" filepath="$PROJECT_DIR$/08水波纹完整版/08水波纹完整版.iml" />
-      <module fileurl="file://$PROJECT_DIR$/09联系人快速索引/09联系人快速索引.iml" filepath="$PROJECT_DIR$/09联系人快速索引/09联系人快速索引.iml" />
       <module fileurl="file://$PROJECT_DIR$/CustomeView_Course.iml" filepath="$PROJECT_DIR$/CustomeView_Course.iml" />
       <module fileurl="file://$PROJECT_DIR$/ScrollTest/ScrollTest.iml" filepath="$PROJECT_DIR$/ScrollTest/ScrollTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/customeindicator/customeindicator.iml" filepath="$PROJECT_DIR$/customeindicator/customeindicator.iml" />
+      <module fileurl="file://$PROJECT_DIR$/hongyangindicator/hongyangindicator.iml" filepath="$PROJECT_DIR$/hongyangindicator/hongyangindicator.iml" />
       <module fileurl="file://$PROJECT_DIR$/hongyangprogressbartest/hongyangprogressbartest.iml" filepath="$PROJECT_DIR$/hongyangprogressbartest/hongyangprogressbartest.iml" />
       <module fileurl="file://$PROJECT_DIR$/roundprogressbartest/roundprogressbartest.iml" filepath="$PROJECT_DIR$/roundprogressbartest/roundprogressbartest.iml" />
-      <module fileurl="file://$PROJECT_DIR$/self04自定义开关/self04自定义开关.iml" filepath="$PROJECT_DIR$/self04自定义开关/self04自定义开关.iml" />
       <module fileurl="file://$PROJECT_DIR$/self05自定义属性1/self05自定义属性1.iml" filepath="$PROJECT_DIR$/self05自定义属性1/self05自定义属性1.iml" />
       <module fileurl="file://$PROJECT_DIR$/self06仿viewpager/self06仿viewpager.iml" filepath="$PROJECT_DIR$/self06仿viewpager/self06仿viewpager.iml" />
       <module fileurl="file://$PROJECT_DIR$/self07侧滑删除菜单/self07侧滑删除菜单.iml" filepath="$PROJECT_DIR$/self07侧滑删除菜单/self07侧滑删除菜单.iml" />
-      <module fileurl="file://$PROJECT_DIR$/self09联系人索引/self09联系人索引.iml" filepath="$PROJECT_DIR$/self09联系人索引/self09联系人索引.iml" />
       <module fileurl="file://$PROJECT_DIR$/test/test.iml" filepath="$PROJECT_DIR$/test/test.iml" />
     </modules>
   </component>

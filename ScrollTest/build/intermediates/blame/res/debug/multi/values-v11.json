@@ -1,6 +1,6 @@
 [
     {
-        "outputFile": "F:\\GitHub\\CustomeView_Course\\ScrollTest\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-v11\\values-v11.xml",
+        "outputFile": "E:\\GitHub\\CustomeView_Course\\ScrollTest\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-v11\\values-v11.xml",
         "map": [
             {
                 "to": {
@@ -12,7 +12,7 @@
                     "endOffset": 187
                 },
                 "from": {
-                    "file": "F:\\GitHub\\CustomeView_Course\\ScrollTest\\src\\main\\res\\values-v11\\styles.xml",
+                    "file": "E:\\GitHub\\CustomeView_Course\\ScrollTest\\src\\main\\res\\values-v11\\styles.xml",
                     "position": {
                         "startLine": 6,
                         "startColumn": 4,

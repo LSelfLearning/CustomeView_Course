@@ -209,9 +209,11 @@ public class RoundProgressBar extends View {
 
     @Override
     protected void onDetachedFromWindow() {
-        valueAnimator.cancel();
-        valueAnimator.end();
-        valueAnimator=null;
+        if(valueAnimator!=null) {
+            valueAnimator.cancel();
+            valueAnimator.end();
+            valueAnimator=null;
+        }
         super.onDetachedFromWindow();
     }
 

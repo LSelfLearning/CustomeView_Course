@@ -1,6 +1,6 @@
 [
     {
-        "outputFile": "F:\\GitHub\\CustomeView_Course\\08水波纹完整版\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values\\values.xml",
+        "outputFile": "E:\\GitHub\\CustomeView_Course\\08水波纹完整版\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values\\values.xml",
         "map": [
             {
                 "to": {
@@ -11,7 +11,7 @@
                     "endOffset": 91
                 },
                 "from": {
-                    "file": "F:\\GitHub\\CustomeView_Course\\08水波纹完整版\\src\\main\\res\\values\\strings.xml",
+                    "file": "E:\\GitHub\\CustomeView_Course\\08水波纹完整版\\src\\main\\res\\values\\strings.xml",
                     "position": {
                         "startLine": 3,
                         "startColumn": 4,
@@ -30,7 +30,7 @@
                     "endOffset": 144
                 },
                 "from": {
-                    "file": "F:\\GitHub\\CustomeView_Course\\08水波纹完整版\\src\\main\\res\\values\\strings.xml",
+                    "file": "E:\\GitHub\\CustomeView_Course\\08水波纹完整版\\src\\main\\res\\values\\strings.xml",
                     "position": {
                         "startLine": 4,
                         "startColumn": 4,
@@ -49,7 +49,7 @@
                     "endOffset": 195
                 },
                 "from": {
-                    "file": "F:\\GitHub\\CustomeView_Course\\08水波纹完整版\\src\\main\\res\\values\\strings.xml",
+                    "file": "E:\\GitHub\\CustomeView_Course\\08水波纹完整版\\src\\main\\res\\values\\strings.xml",
                     "position": {
                         "startLine": 5,
                         "startColumn": 4,
@@ -69,7 +69,7 @@
                     "endOffset": 486
                 },
                 "from": {
-                    "file": "F:\\GitHub\\CustomeView_Course\\08水波纹完整版\\src\\main\\res\\values\\styles.xml",
+                    "file": "E:\\GitHub\\CustomeView_Course\\08水波纹完整版\\src\\main\\res\\values\\styles.xml",
                     "position": {
                         "startLine": 6,
                         "startColumn": 4,
@@ -90,7 +90,7 @@
                     "endOffset": 646
                 },
                 "from": {
-                    "file": "F:\\GitHub\\CustomeView_Course\\08水波纹完整版\\src\\main\\res\\values\\styles.xml",
+                    "file": "E:\\GitHub\\CustomeView_Course\\08水波纹完整版\\src\\main\\res\\values\\styles.xml",
                     "position": {
                         "startLine": 15,
                         "startColumn": 4,
