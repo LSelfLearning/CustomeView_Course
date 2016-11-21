@@ -1,6 +1,6 @@
 [
     {
-        "outputFile": "E:\\GitHub\\CustomeView_Course\\06仿ViewPager\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-v11\\values-v11.xml",
+        "outputFile": "F:\\GitHub\\CustomeView_Course\\06仿ViewPager\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-v11\\values-v11.xml",
         "map": [
             {
                 "to": {
@@ -12,7 +12,7 @@
                     "endOffset": 187
                 },
                 "from": {
-                    "file": "E:\\GitHub\\CustomeView_Course\\06仿ViewPager\\src\\main\\res\\values-v11\\styles.xml",
+                    "file": "F:\\GitHub\\CustomeView_Course\\06仿ViewPager\\src\\main\\res\\values-v11\\styles.xml",
                     "position": {
                         "startLine": 6,
                         "startColumn": 4,

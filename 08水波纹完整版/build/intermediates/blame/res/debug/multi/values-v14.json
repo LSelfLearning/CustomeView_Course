@@ -1,6 +1,6 @@
 [
     {
-        "outputFile": "E:\\GitHub\\CustomeView_Course\\08水波纹完整版\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-v14\\values-v14.xml",
+        "outputFile": "F:\\GitHub\\CustomeView_Course\\08水波纹完整版\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-v14\\values-v14.xml",
         "map": [
             {
                 "to": {
@@ -12,7 +12,7 @@
                     "endOffset": 201
                 },
                 "from": {
-                    "file": "E:\\GitHub\\CustomeView_Course\\08水波纹完整版\\src\\main\\res\\values-v14\\styles.xml",
+                    "file": "F:\\GitHub\\CustomeView_Course\\08水波纹完整版\\src\\main\\res\\values-v14\\styles.xml",
                     "position": {
                         "startLine": 7,
                         "startColumn": 4,
