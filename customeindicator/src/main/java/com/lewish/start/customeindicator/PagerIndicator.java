@@ -34,7 +34,7 @@ public class PagerIndicator extends LinearLayout {
     private int mTriangleHeight;
     private int mTrangleInitTranslationX;
     private int mTrangleTranslationX;
-    private static final float RADIO_TRIANGLE_WIDTH = 1 / 3f;
+    private static final float RADIO_TRIANGLE_WIDTH = 1/3f;
     private static final String COLOR_LINE_REACH = "#d20000";
     private static final String COLOR_LINE_UNREACH = "#44000000";
 
@@ -73,8 +73,8 @@ public class PagerIndicator extends LinearLayout {
      * 倒三角
      */
     private void initTriangle() {
-        mTriangleHeight = mTriangleWidth / 2;
-        mLineHeight = mTriangleWidth / 6;
+        mTriangleHeight = mTriangleWidth / 2;//默认三角形高度是宽度的1/2
+        mLineHeight = mTriangleWidth / 6;//默认线的高度是三角形宽度的1/6
         mPath = new Path();
         mPath.moveTo(0, 0);
         mPath.lineTo(mTriangleWidth, 0);
@@ -120,7 +120,7 @@ public class PagerIndicator extends LinearLayout {
     protected void onSizeChanged(int w, int h, int oldw, int oldh) {
         super.onSizeChanged(w, h, oldw, oldh);
         mTriangleWidth = (int) (h * RADIO_TRIANGLE_WIDTH);
-        mTrangleInitTranslationX = w / mTabVisibleCount / 2 - mTriangleWidth / 2;
+        mTrangleInitTranslationX = w / mTabVisibleCount / 2 - mTriangleWidth / 2;//默认小三角形的位置
         tabHeight = h;
         initTriangle();
     }
@@ -179,7 +179,6 @@ public class PagerIndicator extends LinearLayout {
     }
     /**
      * 高亮文本
-     *
      * @param position
      */
     protected void highLightTextView(int position) {
@@ -188,7 +187,6 @@ public class PagerIndicator extends LinearLayout {
             ((TextView) view).setTextColor(Color.parseColor(COLOR_TEXT_HIGHLIGHTCOLOR));
         }
     }
-
     /**
      * 重置文本颜色
      */
@@ -200,7 +198,6 @@ public class PagerIndicator extends LinearLayout {
             }
         }
     }
-
     /**
      * 设置点击事件
      */
@@ -255,6 +252,7 @@ public class PagerIndicator extends LinearLayout {
             @Override
             public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
                 scroll(position,positionOffset);
+
                 if(mOnPageChangeListener!=null) {
                     mOnPageChangeListener.onPageScrolled(position,positionOffset,positionOffsetPixels);
                 }

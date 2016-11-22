@@ -11,7 +11,7 @@ import java.util.List;
 public class MainActivity extends AppCompatActivity {
     private PagerIndicator mPagerIndicator;
     private ViewPager mViewPager;
-    private List<String> mTitles =  Arrays.asList("Content1","Content2");
+    private List<String> mTitles =  Arrays.asList("银多利","月盈利");
     private ArrayList<ContentFragment> mContentFragments = new ArrayList<>();
     private ContentAdapter mContentAdapter;
 
