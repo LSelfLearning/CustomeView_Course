@@ -17,11 +17,21 @@ import android.widget.LinearLayout;
 public class PagerIndicator extends LinearLayout {
     private Paint mPaint;
     private Path mPath;
+    private int tabWidth;
+    private int tabHeight;
+
     private int mTriangleWidth;
     private int mTriangleHeight;
-    private static final float RADIO_TRIANGLE_WIDTH = 1 / 6f;
-    private int mInitTranslationX;
-    private int mTranslationX;
+    private int mTrangleInitTranslationX;
+    private int mTrangleTranslationX;
+    private static final float RADIO_TRIANGLE_WIDTH = 1 / 8f;
+    private static final String COLOR_LINE_REACH = "#d20000";
+    private static final String COLOR_LINE_UNREACH = "#44000000";
+
+    private int mLineWidth;
+    private int mLineHeight;
+    private int mLineTranslationX;
+
 
     public PagerIndicator(Context context) {
         this(context, null);
@@ -32,44 +42,55 @@ public class PagerIndicator extends LinearLayout {
 
         mPaint = new Paint();
         mPaint.setAntiAlias(true);
-        mPaint.setColor(Color.WHITE);
+        mPaint.setColor(Color.parseColor(COLOR_LINE_REACH));
         mPaint.setStyle(Paint.Style.FILL);
         mPaint.setPathEffect(new CornerPathEffect(3));
     }
 
+    /**
+     * 倒三角
+     */
     private void initTriangle() {
         mTriangleHeight = mTriangleWidth / 2;
-
+        mLineHeight = mTriangleWidth / 6;
         mPath = new Path();
         mPath.moveTo(0, 0);
         mPath.lineTo(mTriangleWidth, 0);
-        mPath.lineTo(mTriangleWidth / 2, -mTriangleHeight);
+        mPath.lineTo(mTriangleWidth / 2, mTriangleHeight);
         mPath.close();
     }
 
     @Override
     protected void dispatchDraw(Canvas canvas) {
+        mPaint.setStrokeWidth(mLineHeight);
+        //画灰线
+        mPaint.setColor(Color.parseColor(COLOR_LINE_UNREACH));
+        canvas.drawLine(0,tabHeight-mTriangleHeight,tabWidth*2,tabHeight-mTriangleHeight,mPaint);
+        //画红线
+        mPaint.setColor(Color.parseColor(COLOR_LINE_REACH));
+        canvas.drawLine(mLineTranslationX,tabHeight-mTriangleHeight,mLineTranslationX+tabWidth,tabHeight-mTriangleHeight,mPaint);
+        //画三角
         canvas.save();
-
-        canvas.translate(mInitTranslationX + mTranslationX, getHeight() + 1);
+        canvas.translate(mTrangleInitTranslationX + mTrangleTranslationX, tabHeight-mTriangleHeight);
         canvas.drawPath(mPath, mPaint);
-
         canvas.restore();
+
         super.dispatchDraw(canvas);
     }
 
     @Override
     protected void onSizeChanged(int w, int h, int oldw, int oldh) {
         super.onSizeChanged(w, h, oldw, oldh);
-        mTriangleWidth = (int) (w / 3 * RADIO_TRIANGLE_WIDTH);
-        mInitTranslationX = w / 3 / 2 - mTriangleWidth / 2;
-
+        mTriangleWidth = (int) (w / 2 * RADIO_TRIANGLE_WIDTH);
+        mTrangleInitTranslationX = w / 2 / 2 - mTriangleWidth / 2;
+        tabHeight = h;
         initTriangle();
     }
 
     public void scroll(int position, float offset) {
-        int tabWidth = getWidth() / 3;
-        mTranslationX = (int) (tabWidth * (offset + position));
+        tabWidth = getWidth() / 2;
+        mTrangleTranslationX = (int) (tabWidth * (offset + position));
+        mLineTranslationX = (int) (tabWidth * (offset + position));
         invalidate();
     }
 

@@ -11,32 +11,26 @@
         android:id="@+id/pager_indicator"
         android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:background="@color/colorAccent"
+        android:background="@color/colorPrimaryDark"
         android:layout_height="48dp">
         <TextView
             android:id="@+id/tv1"
-            android:text="tv1"
+            android:text="银多利"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:gravity="center"
-            android:textSize="16sp" />
+            android:textSize="16sp"
+            android:layout_marginBottom="10dp"/>
         <TextView
             android:id="@+id/tv2"
-            android:text="tv2"
+            android:text="月盈利"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:gravity="center"
-            android:textSize="16sp" />
-        <TextView
-            android:id="@+id/tv3"
-            android:text="tv3"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:textSize="16sp" />
+            android:textSize="16sp"
+            android:layout_marginBottom="10dp"/>
     </com.lewish.start.customeindicator.PagerIndicator>
     <android.support.v4.view.ViewPager
         android:id="@+id/viewpager"
