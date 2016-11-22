@@ -6,17 +6,27 @@ import android.graphics.Color;
 import android.graphics.CornerPathEffect;
 import android.graphics.Paint;
 import android.graphics.Path;
+import android.support.v4.view.ViewPager;
 import android.util.AttributeSet;
+import android.util.DisplayMetrics;
 import android.util.TypedValue;
+import android.view.Gravity;
+import android.view.View;
+import android.view.WindowManager;
 import android.widget.LinearLayout;
+import android.widget.TextView;
+
+import java.util.List;
 
 /**
- * Created by Administrator on 2016/11/21 16:45.
+ * Created by sundong on 2016/11/21 16:45.
  */
 
 public class PagerIndicator extends LinearLayout {
     private Paint mPaint;
     private Path mPath;
+    private static final int COUNT_DEFAULT_TAB = 4;
+    private int mTabVisibleCount = COUNT_DEFAULT_TAB;
     private int tabWidth;
     private int tabHeight;
 
@@ -24,13 +34,21 @@ public class PagerIndicator extends LinearLayout {
     private int mTriangleHeight;
     private int mTrangleInitTranslationX;
     private int mTrangleTranslationX;
-    private static final float RADIO_TRIANGLE_WIDTH = 1 / 8f;
+    private static final float RADIO_TRIANGLE_WIDTH = 1 / 3f;
     private static final String COLOR_LINE_REACH = "#d20000";
     private static final String COLOR_LINE_UNREACH = "#44000000";
 
     private int mLineWidth;
     private int mLineHeight;
     private int mLineTranslationX;
+    private int childCount;
+
+    private ViewPager mViewPager;
+    private OnPageChangeListener mOnPageChangeListener;
+
+    private static final String COLOR_TEXT_NORMAL = "#000000";
+    private static final String COLOR_TEXT_HIGHLIGHTCOLOR = "#d20000";
+    private List<String> mTabTitles;
 
 
     public PagerIndicator(Context context) {
@@ -39,7 +57,11 @@ public class PagerIndicator extends LinearLayout {
 
     public PagerIndicator(Context context, AttributeSet attrs) {
         super(context, attrs);
+        tabWidth = getScreenWidth()/mTabVisibleCount;
+        initPaint();
+    }
 
+    private void initPaint() {
         mPaint = new Paint();
         mPaint.setAntiAlias(true);
         mPaint.setColor(Color.parseColor(COLOR_LINE_REACH));
@@ -61,11 +83,27 @@ public class PagerIndicator extends LinearLayout {
     }
 
     @Override
+    protected void onFinishInflate() {
+        super.onFinishInflate();
+        childCount = getChildCount();
+        if(childCount ==0) {
+            return;
+        }
+        for (int i = 0; i<childCount; i++){
+            View childView = getChildAt(i);
+            LinearLayout.LayoutParams lp = (LayoutParams) childView.getLayoutParams();
+            lp.weight = 0;
+            lp.width = tabWidth;
+            childView.setLayoutParams(lp);
+        }
+    }
+
+    @Override
     protected void dispatchDraw(Canvas canvas) {
         mPaint.setStrokeWidth(mLineHeight);
         //画灰线
         mPaint.setColor(Color.parseColor(COLOR_LINE_UNREACH));
-        canvas.drawLine(0,tabHeight-mTriangleHeight,tabWidth*2,tabHeight-mTriangleHeight,mPaint);
+        canvas.drawLine(0,tabHeight-mTriangleHeight,tabWidth*childCount,tabHeight-mTriangleHeight,mPaint);
         //画红线
         mPaint.setColor(Color.parseColor(COLOR_LINE_REACH));
         canvas.drawLine(mLineTranslationX,tabHeight-mTriangleHeight,mLineTranslationX+tabWidth,tabHeight-mTriangleHeight,mPaint);
@@ -81,19 +119,179 @@ public class PagerIndicator extends LinearLayout {
     @Override
     protected void onSizeChanged(int w, int h, int oldw, int oldh) {
         super.onSizeChanged(w, h, oldw, oldh);
-        mTriangleWidth = (int) (w / 2 * RADIO_TRIANGLE_WIDTH);
-        mTrangleInitTranslationX = w / 2 / 2 - mTriangleWidth / 2;
+        mTriangleWidth = (int) (h * RADIO_TRIANGLE_WIDTH);
+        mTrangleInitTranslationX = w / mTabVisibleCount / 2 - mTriangleWidth / 2;
         tabHeight = h;
         initTriangle();
     }
 
+    /**
+     * 滑动
+     * @param position
+     * @param offset
+     */
     public void scroll(int position, float offset) {
-        tabWidth = getWidth() / 2;
+        //三角形要移动的距离
         mTrangleTranslationX = (int) (tabWidth * (offset + position));
+        //红线要移动的距离
         mLineTranslationX = (int) (tabWidth * (offset + position));
+        // 容器滚动，当移动到倒数最后一个的时候，开始滚动
+        if ((position<(childCount-2))&& position >= (mTabVisibleCount - 2) &&offset>0&& getChildCount() > mTabVisibleCount) {
+            if (mTabVisibleCount != 1) {
+                this.scrollTo((position - (mTabVisibleCount - 2)) * tabWidth + (int) (tabWidth * offset), 0);
+            } else {// 为count为1时 的特殊处理
+                this.scrollTo(position * tabWidth + (int) (tabWidth * offset), 0);
+            }
+        }
         invalidate();
     }
 
+    /**
+     * 设置Tab数据集合
+     * @param datas
+     */
+    public void setTabItemTitles(List<String> datas) {
+        // 如果传入的list有值，则移除布局文件中设置的view
+        if (datas != null && datas.size() > 0) {
+            this.removeAllViews();
+            this.mTabTitles = datas;
+            childCount = datas.size();
+            tabWidth = getScreenWidth()/mTabVisibleCount;
+            for (String title : mTabTitles) {
+                // 添加view
+                addView(generateTextView(title));
+            }
+        }
+        // 设置item的click事件
+        setItemClickEvent();
+    }
+    private TextView generateTextView(String text) {
+        TextView tv = new TextView(getContext());
+        LayoutParams lp = new LayoutParams(
+                LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT);
+        lp.width = getScreenWidth() / mTabVisibleCount;
+        tv.setGravity(Gravity.CENTER);
+        tv.setTextColor(Color.parseColor(COLOR_TEXT_NORMAL));
+        tv.setText(text);
+        tv.setTextSize(TypedValue.COMPLEX_UNIT_SP, 16);
+        tv.setLayoutParams(lp);
+        return tv;
+    }
+    /**
+     * 高亮文本
+     *
+     * @param position
+     */
+    protected void highLightTextView(int position) {
+        View view = getChildAt(position);
+        if (view instanceof TextView) {
+            ((TextView) view).setTextColor(Color.parseColor(COLOR_TEXT_HIGHLIGHTCOLOR));
+        }
+    }
+
+    /**
+     * 重置文本颜色
+     */
+    private void resetTextViewColor() {
+        for (int i = 0; i < getChildCount(); i++) {
+            View view = getChildAt(i);
+            if (view instanceof TextView) {
+                ((TextView) view).setTextColor(Color.parseColor(COLOR_TEXT_NORMAL));
+            }
+        }
+    }
+
+    /**
+     * 设置点击事件
+     */
+    public void setItemClickEvent() {
+        int cCount = getChildCount();
+        for (int i = 0; i < cCount; i++) {
+            final int j = i;
+            View view = getChildAt(i);
+            view.setOnClickListener(new OnClickListener()
+            {
+                @Override
+                public void onClick(View v)
+                {
+                    mViewPager.setCurrentItem(j);
+                }
+            });
+        }
+    }
+    public int getTabVisibleCount() {
+        return mTabVisibleCount;
+    }
+
+    public void setTabVisibleCount(int mTabVisibleCount) {
+        this.mTabVisibleCount = mTabVisibleCount;
+    }
+
+    public ViewPager getViewPager() {
+        return mViewPager;
+    }
+
+    public void setmOnPageChangeListener(OnPageChangeListener mOnPageChangeListener) {
+        this.mOnPageChangeListener = mOnPageChangeListener;
+    }
+
+    public interface OnPageChangeListener {
+
+        void onPageScrolled(int position, float positionOffset, int positionOffsetPixels);
+
+        void onPageSelected(int position);
+
+        void onPageScrollStateChanged(int state);
+    }
+
+    /**
+     * 关联ViewPager
+     * @param mViewPager
+     * @param defaultPos
+     */
+    public void setUpWithViewPager(ViewPager mViewPager, int defaultPos) {
+        this.mViewPager = mViewPager;
+        mViewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+            @Override
+            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+                scroll(position,positionOffset);
+                if(mOnPageChangeListener!=null) {
+                    mOnPageChangeListener.onPageScrolled(position,positionOffset,positionOffsetPixels);
+                }
+            }
+
+            @Override
+            public void onPageSelected(int position) {
+                // 设置字体颜色高亮
+                resetTextViewColor();
+                highLightTextView(position);
+                if(mOnPageChangeListener!=null) {
+                    mOnPageChangeListener.onPageSelected(position);
+                }
+            }
+
+            @Override
+            public void onPageScrollStateChanged(int state) {
+                if(mOnPageChangeListener!=null) {
+                    mOnPageChangeListener.onPageScrollStateChanged(state);
+                }
+            }
+        });
+        mViewPager.setCurrentItem(defaultPos);
+    }
+
+    /**
+     * 得到屏幕宽度
+     * @return
+     */
+    public int getScreenWidth()
+    {
+        WindowManager wm = (WindowManager) getContext().getSystemService(
+                Context.WINDOW_SERVICE);
+        DisplayMetrics outMetrics = new DisplayMetrics();
+        wm.getDefaultDisplay().getMetrics(outMetrics);
+        return outMetrics.widthPixels;
+    }
     /**
      * dp 2 px
      *

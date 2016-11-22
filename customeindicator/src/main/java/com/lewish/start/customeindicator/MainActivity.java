@@ -18,27 +18,14 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_main2);
 
         mPagerIndicator = (PagerIndicator) findViewById(R.id.pager_indicator);
         mViewPager = (ViewPager) findViewById(R.id.viewpager);
+        mPagerIndicator.setUpWithViewPager(mViewPager,0);
+        mPagerIndicator.setTabVisibleCount(2);
+        mPagerIndicator.setTabItemTitles(mTitles);
 
-        mViewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
-            @Override
-            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
-                mPagerIndicator.scroll(position,positionOffset);
-            }
-
-            @Override
-            public void onPageSelected(int position) {
-
-            }
-
-            @Override
-            public void onPageScrollStateChanged(int state) {
-
-            }
-        });
         for (String mTitle : mTitles) {
             ContentFragment contentFragment = ContentFragment.newInstance(mTitle);
             mContentFragments.add(contentFragment);

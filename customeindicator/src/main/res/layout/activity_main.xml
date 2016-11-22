@@ -15,7 +15,7 @@
         android:layout_height="48dp">
         <TextView
             android:id="@+id/tv1"
-            android:text="银多利"
+            android:text="Content1"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
@@ -24,7 +24,34 @@
             android:layout_marginBottom="10dp"/>
         <TextView
             android:id="@+id/tv2"
-            android:text="月盈利"
+            android:text="Content2"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:textSize="16sp"
+            android:layout_marginBottom="10dp"/>
+        <TextView
+            android:id="@+id/tv3"
+            android:text="Content3"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:textSize="16sp"
+            android:layout_marginBottom="10dp"/>
+        <TextView
+            android:id="@+id/tv4"
+            android:text="Content4"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:textSize="16sp"
+            android:layout_marginBottom="10dp"/>
+        <TextView
+            android:id="@+id/tv5"
+            android:text="Content5"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
