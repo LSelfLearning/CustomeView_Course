@@ -1,4 +1,3 @@
 include ':self05自定义属性1', ':test', ':roundprogressbartest', ':hongyangprogressbartest', ':customeindicator', ':hongyangindicator'
-include '05自定义属性1', '05自定义属性2', '06仿ViewPager', '07侧滑删除菜单', '07侧滑菜单',
-        'ScrollTest',
+include '05自定义属性1', '05自定义属性2', '07侧滑删除菜单',
         'self06仿viewpager', 'self07侧滑删除菜单'

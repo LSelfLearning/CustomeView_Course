@@ -34,15 +34,23 @@
             style="@style/bottom_tag_style"
             android:text="谷便利" />
     </RadioGroup>
+
     <com.lewish.start.roundprogressbartest.RoundProgressBar
-    android:id="@+id/round_progress_bar"
-    android:layout_width="120dp"
-    android:layout_height="120dp"
+        android:id="@+id/round_progress_bar"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:layout_centerInParent="true"
         android:padding="10dp"
-    android:layout_centerInParent="true"
-    app:roundColor="#eeeeee"
-    app:roundProgressColor="#0096f4"
-    app:max="100"
-    app:textSize="24sp"
-    app:textColor="#0096f4" />
+        app:max="100"
+        app:roundColor="#eeeeee"
+        app:roundProgressColor="#0096f4"
+        app:textColor="#0096f4"
+        app:textSize="24sp" />
+
+    <com.lewish.start.roundprogressbartest.ClockVIew
+        android:id="@+id/clock_view"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true" />
 </RelativeLayout>

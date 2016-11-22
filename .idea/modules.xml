@@ -4,11 +4,8 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/05自定义属性1/05自定义属性1.iml" filepath="$PROJECT_DIR$/05自定义属性1/05自定义属性1.iml" />
       <module fileurl="file://$PROJECT_DIR$/05自定义属性2/05自定义属性2.iml" filepath="$PROJECT_DIR$/05自定义属性2/05自定义属性2.iml" />
-      <module fileurl="file://$PROJECT_DIR$/06仿ViewPager/06仿ViewPager.iml" filepath="$PROJECT_DIR$/06仿ViewPager/06仿ViewPager.iml" />
       <module fileurl="file://$PROJECT_DIR$/07侧滑删除菜单/07侧滑删除菜单.iml" filepath="$PROJECT_DIR$/07侧滑删除菜单/07侧滑删除菜单.iml" />
-      <module fileurl="file://$PROJECT_DIR$/07侧滑菜单/07侧滑菜单.iml" filepath="$PROJECT_DIR$/07侧滑菜单/07侧滑菜单.iml" />
       <module fileurl="file://$PROJECT_DIR$/CustomeView_Course.iml" filepath="$PROJECT_DIR$/CustomeView_Course.iml" />
-      <module fileurl="file://$PROJECT_DIR$/ScrollTest/ScrollTest.iml" filepath="$PROJECT_DIR$/ScrollTest/ScrollTest.iml" />
       <module fileurl="file://$PROJECT_DIR$/customeindicator/customeindicator.iml" filepath="$PROJECT_DIR$/customeindicator/customeindicator.iml" />
       <module fileurl="file://$PROJECT_DIR$/hongyangindicator/hongyangindicator.iml" filepath="$PROJECT_DIR$/hongyangindicator/hongyangindicator.iml" />
       <module fileurl="file://$PROJECT_DIR$/hongyangprogressbartest/hongyangprogressbartest.iml" filepath="$PROJECT_DIR$/hongyangprogressbartest/hongyangprogressbartest.iml" />

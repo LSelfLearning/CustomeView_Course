@@ -6,5 +6,13 @@
     {
         "merged": "E:\\GitHub\\CustomeView_Course\\06仿ViewPager\\build\\intermediates\\res\\merged\\debug\\layout\\activity_main.xml",
         "source": "E:\\GitHub\\CustomeView_Course\\06仿ViewPager\\src\\main\\res\\layout\\activity_main.xml"
+    },
+    {
+        "merged": "F:\\GitHub\\CustomeView_Course\\06仿ViewPager\\build\\intermediates\\res\\merged\\debug\\layout\\test.xml",
+        "source": "F:\\GitHub\\CustomeView_Course\\06仿ViewPager\\src\\main\\res\\layout\\test.xml"
+    },
+    {
+        "merged": "F:\\GitHub\\CustomeView_Course\\06仿ViewPager\\build\\intermediates\\res\\merged\\debug\\layout\\activity_main.xml",
+        "source": "F:\\GitHub\\CustomeView_Course\\06仿ViewPager\\src\\main\\res\\layout\\activity_main.xml"
     }
 ]

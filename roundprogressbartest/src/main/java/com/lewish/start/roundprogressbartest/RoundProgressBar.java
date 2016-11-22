@@ -10,6 +10,7 @@ import android.graphics.RectF;
 import android.graphics.Typeface;
 import android.text.TextUtils;
 import android.util.AttributeSet;
+import android.util.TypedValue;
 import android.view.View;
 
 
@@ -147,7 +148,7 @@ public class RoundProgressBar extends View {
         paint.setStyle(Paint.Style.FILL); //设置实心
         paint.setStrokeWidth(2); //设置圆环的宽度
         paint.setAntiAlias(true);  //消除锯齿
-        canvas.drawCircle(x, y, 30, paint); //画出圆环
+        canvas.drawCircle(x, y, dp2px(10), paint); //画出圆环
     }
 
     public void dynamicDraw(float progress){
@@ -274,5 +275,22 @@ public class RoundProgressBar extends View {
     public void setType(int type) {
         this.type = type;
     }
+    /**
+     * dp 2 px
+     * @param dpVal
+     */
+    protected int dp2px(int dpVal) {
+        return (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP,
+                dpVal, getResources().getDisplayMetrics());
+    }
 
+    /**
+     * sp 2 px
+     * @param spVal
+     * @return
+     */
+    protected int sp2px(int spVal) {
+        return (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_SP,
+                spVal, getResources().getDisplayMetrics());
+    }
 }
