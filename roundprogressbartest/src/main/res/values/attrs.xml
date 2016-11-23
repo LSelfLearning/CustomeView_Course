@@ -3,7 +3,8 @@
     <declare-styleable name="RoundProgressBar">
         <attr name="roundColor" format="color" />
         <attr name="roundProgressColor" format="color" />
-        <attr name="roundWidth" format="dimension" />
+        <attr name="roundPaintWidth" format="dimension" />
+        <attr name="rotateRoundColor" format="color"/>
         <attr name="textColor" format="color" />
         <attr name="textSize" format="dimension" />
         <attr name="max" format="integer" />

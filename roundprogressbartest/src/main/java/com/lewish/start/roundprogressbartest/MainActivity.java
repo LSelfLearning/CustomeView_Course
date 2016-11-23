@@ -13,7 +13,7 @@ public class MainActivity extends AppCompatActivity {
 
         roundProgressBar = (RoundProgressBar)findViewById(R.id.round_progress_bar);
         my_clockview = (MyClockView)findViewById(R.id.my_clockview);
-        roundProgressBar.dynamicDraw(100);
+        roundProgressBar.dynamicDraw(50);
         my_clockview.dynamicDraw(50,3000);
         my_clockview.updateTime(28806000);
     }
