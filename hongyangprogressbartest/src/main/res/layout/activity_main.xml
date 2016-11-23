@@ -22,7 +22,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="50dip"
             android:padding="5dp"
-            android:progress="10"
+            android:mProgress="10"
             zhy:progress_text_color="#ff2903FC"
             zhy:progress_unreached_color="#ffBCB4E8" />
 
@@ -31,7 +31,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="50dip"
             android:background="#44ff0000"
-            android:progress="30"
+            android:mProgress="30"
             zhy:progress_text_color="#ff03F793"
             zhy:progress_text_size="30dp"
             zhy:progress_unreached_color="#ffAFF2D6" />
@@ -41,7 +41,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="50dip"
             android:padding="5dp"
-            android:progress="50"
+            android:mProgress="50"
             zhy:progress_text_color="#ffF53B03"
             zhy:progress_unreached_color="#ffF7C6B7" />
 
@@ -51,7 +51,7 @@
             android:layout_height="100dp"
             android:layout_marginTop="50dip"
             android:background="#44ff0000"
-            android:progress="30" />
+            android:mProgress="30" />
 
         <com.start.lewish.hongyangprogressbartest.RoundProgressBarWidthNumber
             android:layout_width="match_parent"
@@ -59,7 +59,7 @@
             android:layout_marginTop="50dip"
             android:background="#44ff0000"
             android:padding="5dp"
-            android:progress="50"
+            android:mProgress="50"
             zhy:progress_reached_bar_height="20dp"
             zhy:progress_text_color="#ffF53B03"
             zhy:radius="60dp" />
@@ -70,7 +70,7 @@
             android:layout_marginTop="50dip"
             android:background="#44ff0000"
             android:padding="15dp"
-            android:progress="70"
+            android:mProgress="70"
             zhy:progress_text_color="#ff2903FC"
             zhy:progress_text_size="30sp"
             zhy:progress_unreached_color="#ffBCB4E8"
@@ -82,7 +82,7 @@
             android:layout_marginTop="50dip"
             android:background="#44ff0000"
             android:padding="5dp"
-            android:progress="70"
+            android:mProgress="70"
             zhy:progress_reached_bar_height="20dp"
             zhy:progress_text_color="#ffF53B03"
             zhy:progress_unreached_color="#00F7C6B7" />

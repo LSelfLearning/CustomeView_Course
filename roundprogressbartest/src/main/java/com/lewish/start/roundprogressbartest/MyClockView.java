@@ -9,12 +9,18 @@ import android.graphics.Paint;
 import android.util.AttributeSet;
 import android.util.TypedValue;
 import android.view.View;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
+
+import java.text.SimpleDateFormat;
 
 /**
- * Created by Lewish on 2016/11/22.
+ * Created by Administrator on 2016/11/23 11:26.
  */
 
-public class ClockView extends View {
+public class MyClockView extends RelativeLayout {
+    private TextView mTvTime;
+    private SimpleDateFormat sdf = new SimpleDateFormat("HH:mm:ss");
     private Paint mPaint;
     private int mReachColor;
     private int mUnReachColor;
@@ -27,12 +33,24 @@ public class ClockView extends View {
     private int mProgress;
     private ValueAnimator valueAnimator;
 
-    public ClockView(Context context) {
+    public MyClockView(Context context) {
         this(context,null);
     }
 
-    public ClockView(Context context, AttributeSet attrs) {
+    public MyClockView(Context context, AttributeSet attrs) {
         super(context, attrs);
+        initFromXml(context, attrs);
+        initPaint();
+        initView(context);
+    }
+
+    private void initPaint() {
+        mPaint = new Paint();
+        mPaint.setStrokeWidth(mStrokeWidth);
+        mPaint.setAntiAlias(true);
+    }
+
+    private void initFromXml(Context context, AttributeSet attrs) {
         TypedArray typedArray = context.obtainStyledAttributes(attrs,
                 R.styleable.ClockView);
         mReachColor = typedArray.getColor(R.styleable.ClockView_progressReachColor, Color.parseColor("#d20000"));
@@ -42,15 +60,12 @@ public class ClockView extends View {
         mTotalDotNum = typedArray.getInteger(R.styleable.ClockView_totalDotNum,36);
         mProgress = typedArray.getInteger(R.styleable.ClockView_progress,24);
         typedArray.recycle();
-
-        mPaint = new Paint();
-        mPaint.setStrokeWidth(mStrokeWidth);
-        mPaint.setAntiAlias(true);
     }
 
     @Override
-    protected void onDraw(Canvas canvas) {
+    protected void dispatchDraw(Canvas canvas) {
         drawCircleDot(canvas);
+        super.dispatchDraw(canvas);
     }
 
     private void drawCircleDot(Canvas canvas) {
@@ -66,12 +81,10 @@ public class ClockView extends View {
     }
 
     @Override
-    protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
-        super.onMeasure(widthMeasureSpec, heightMeasureSpec);
-        mWidth = MeasureSpec.getSize(widthMeasureSpec);
-        mHeight = MeasureSpec.getSize(heightMeasureSpec);
-        setMeasuredDimension(mWidth, mHeight);
-
+    protected void onSizeChanged(int w, int h, int oldw, int oldh) {
+        super.onSizeChanged(w, h, oldw, oldh);
+        mWidth = w;
+        mHeight = h;
         mDiameter = Math.min(mWidth - getPaddingLeft() - getPaddingRight(), mHeight - getPaddingTop() - getPaddingBottom());
     }
 
@@ -104,5 +117,14 @@ public class ClockView extends View {
             valueAnimator=null;
         }
         super.onDetachedFromWindow();
+    }
+
+    private void initView(Context context) {
+        View.inflate(context, R.layout.myclockview,this);
+        mTvTime = (TextView) findViewById(R.id.tv_time);
+    }
+
+    public void updateTime(long millisUntilFinished){
+        mTvTime.setText(sdf.format(millisUntilFinished-28800000));//中国在东8区，减掉8小时
     }
 }

@@ -13,4 +13,12 @@
             <enum name="FILL" value="1" />
         </attr>
     </declare-styleable>
+    <declare-styleable name="ClockView">
+        <attr name="progressReachColor" format="color"/>
+        <attr name="progressUnReachColor" format="color"/>
+        <attr name="strokeWidth" format="dimension"/>
+        <attr name="strokeLength" format="dimension"/>
+        <attr name="totalDotNum" format="integer"/>
+        <attr name="progress" format="integer"/>
+    </declare-styleable>
 </resources>

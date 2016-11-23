@@ -47,10 +47,10 @@
         app:textColor="#0096f4"
         app:textSize="24sp" />
 
-    <com.lewish.start.roundprogressbartest.ClockVIew
-        android:id="@+id/clock_view"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
+    <com.lewish.start.roundprogressbartest.MyClockView
+        android:id="@+id/my_clockview"
+        android:layout_width="@dimen/x200"
+        android:layout_height="@dimen/y200"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true" />
 </RelativeLayout>

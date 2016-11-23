@@ -54,7 +54,7 @@ public class RoundProgressBar extends View {
     public RoundProgressBar(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
 
-        initFromXML(context, attrs);
+        initFromXml(context, attrs);
     }
 
     @Override
@@ -62,7 +62,7 @@ public class RoundProgressBar extends View {
         super.onMeasure(widthMeasureSpec, heightMeasureSpec);
     }
 
-    private void initFromXML(Context context, AttributeSet attrs) {
+    private void initFromXml(Context context, AttributeSet attrs) {
         paint = new Paint();
 
 

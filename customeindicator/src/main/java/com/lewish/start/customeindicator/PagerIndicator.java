@@ -177,6 +177,7 @@ public class PagerIndicator extends LinearLayout {
         tv.setLayoutParams(lp);
         return tv;
     }
+
     /**
      * 高亮文本
      * @param position
@@ -195,6 +196,21 @@ public class PagerIndicator extends LinearLayout {
             View view = getChildAt(i);
             if (view instanceof TextView) {
                 ((TextView) view).setTextColor(Color.parseColor(COLOR_TEXT_NORMAL));
+            }
+        }
+    }
+    protected void shadowTextColor(int position, float positionOffset){
+        View preView = getChildAt(position);
+        View nextView = null;
+        if(position!=childCount-1) {
+            nextView = getChildAt(position + 1);
+        }
+        if (preView instanceof TextView) {
+            ((TextView) preView).setAlpha(1-positionOffset);
+        }
+        if(nextView!=null) {
+            if (nextView instanceof TextView) {
+                ((TextView) nextView).setAlpha(positionOffset);
             }
         }
     }
@@ -252,7 +268,7 @@ public class PagerIndicator extends LinearLayout {
             @Override
             public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
                 scroll(position,positionOffset);
-
+                shadowTextColor(position,positionOffset);
                 if(mOnPageChangeListener!=null) {
                     mOnPageChangeListener.onPageScrolled(position,positionOffset,positionOffsetPixels);
                 }

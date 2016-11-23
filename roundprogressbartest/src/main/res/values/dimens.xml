@@ -2,4 +2,62 @@
     <!-- Default screen margins, per the Android Design guidelines. -->
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
+
+
+    <!-- margin的宽度 -->
+    <dimen name="margin_4">4dp</dimen>
+    <dimen name="margin_5">5dp</dimen>
+    <dimen name="margin_6">6dp</dimen>
+    <dimen name="margin_8">8dp</dimen>
+    <dimen name="margin_9">9dp</dimen>
+    <dimen name="margin_10">10dp</dimen>
+    <dimen name="margin_12">12dp</dimen>
+    <dimen name="margin_15">15dp</dimen>
+    <dimen name="margin_18">18dp</dimen>
+    <dimen name="margin_19">19dp</dimen>
+    <dimen name="margin_20">20dp</dimen>
+
+    <!-- height的宽度 -->
+    <dimen name="height_50">50dp</dimen>
+    <dimen name="height_60">60dp</dimen>
+    <!-- padding的宽度 -->
+    <dimen name="padding_20">20dp</dimen>
+    <dimen name="padding_10">10dp</dimen>
+    <dimen name="padding_5">5dp</dimen>
+    <!-- 字体大小 -->
+    <dimen name="textSize_22">22sp</dimen>
+    <dimen name="textSize_20">20sp</dimen>
+    <dimen name="textSize_10">10sp</dimen>
+    <dimen name="textSize_12">12sp</dimen>
+    <dimen name="textSize_13">13sp</dimen>
+    <dimen name="textSize_14">14sp</dimen>
+    <dimen name="textSize_15">15sp</dimen>
+    <dimen name="textSize_16">16sp</dimen>
+    <dimen name="textSize_17">17sp</dimen>
+    <dimen name="textSize_18">18sp</dimen>
+    <dimen name="textSize_24">24sp</dimen>
+    <dimen name="textSize_26">26sp</dimen>
+    <dimen name="textSize_30">30sp</dimen>
+    <dimen name="textSize_50">50sp</dimen>
+    <dimen name="textSize_60">60sp</dimen>
+
+    <!-- layout 的高度 -->
+    <dimen name="layout_height_130">130dp</dimen>
+    <dimen name="layout_height_120">120dp</dimen>
+    <dimen name="layout_height_110">110dp</dimen>
+    <dimen name="layout_height_100">100dp</dimen>
+    <dimen name="layout_height_70">70dp</dimen>
+    <dimen name="layout_height_66">66dp</dimen>
+    <dimen name="layout_height_60">60dp</dimen>
+    <dimen name="layout_height_55">55dp</dimen>
+    <dimen name="layout_height_50">50dp</dimen>
+    <dimen name="layout_height_48">48dp</dimen>
+    <dimen name="layout_height_47">47dp</dimen>
+    <dimen name="layout_height_46">46dp</dimen>
+    <dimen name="layout_height_45">45dp</dimen>
+    <dimen name="layout_height_40">40dp</dimen>
+    <dimen name="layout_height_39">39dp</dimen>
+    <dimen name="layout_height_37">37dp</dimen>
+    <dimen name="layout_height_35">35dp</dimen>
+    <dimen name="layout_height_30">30dp</dimen>
 </resources>
