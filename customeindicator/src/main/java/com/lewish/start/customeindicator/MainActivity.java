@@ -18,19 +18,18 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main2);
+        setContentView(R.layout.activity_main);
 
         mPagerIndicator = (PagerIndicator) findViewById(R.id.pager_indicator);
         mViewPager = (ViewPager) findViewById(R.id.viewpager);
-        mPagerIndicator.setUpWithViewPager(mViewPager,0);
-        mPagerIndicator.setTabVisibleCount(2);
-        mPagerIndicator.setTabItemTitles(mTitles);
-
         for (String mTitle : mTitles) {
             ContentFragment contentFragment = ContentFragment.newInstance(mTitle);
             mContentFragments.add(contentFragment);
         }
         mContentAdapter = new ContentAdapter(this,getSupportFragmentManager(),mContentFragments);
         mViewPager.setAdapter(mContentAdapter);
+        mPagerIndicator.setTabVisibleCount(2);
+        mPagerIndicator.setTabItemTitles(mTitles);
+        mPagerIndicator.setUpWithViewPager(mViewPager,1);
     }
 }

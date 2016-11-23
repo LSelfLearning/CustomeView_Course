@@ -25,7 +25,7 @@ import java.util.List;
 public class PagerIndicator extends LinearLayout {
     private Paint mPaint;
     private Path mPath;
-    private static final int COUNT_DEFAULT_TAB = 4;
+    private static final int COUNT_DEFAULT_TAB = 2;
     private int mTabVisibleCount = COUNT_DEFAULT_TAB;
     private int tabWidth;
     private int tabHeight;
@@ -64,7 +64,6 @@ public class PagerIndicator extends LinearLayout {
     private void initPaint() {
         mPaint = new Paint();
         mPaint.setAntiAlias(true);
-        mPaint.setColor(Color.parseColor(COLOR_LINE_REACH));
         mPaint.setStyle(Paint.Style.FILL);
         mPaint.setPathEffect(new CornerPathEffect(3));
     }
@@ -259,16 +258,16 @@ public class PagerIndicator extends LinearLayout {
 
     /**
      * 关联ViewPager
-     * @param mViewPager
+     * @param viewPager
      * @param defaultPos
      */
-    public void setUpWithViewPager(ViewPager mViewPager, int defaultPos) {
-        this.mViewPager = mViewPager;
+    public void setUpWithViewPager(ViewPager viewPager, final int defaultPos) {
+        this.mViewPager = viewPager;
         mViewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
             public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
                 scroll(position,positionOffset);
-                shadowTextColor(position,positionOffset);
+//                shadowTextColor(position,positionOffset);
                 if(mOnPageChangeListener!=null) {
                     mOnPageChangeListener.onPageScrolled(position,positionOffset,positionOffsetPixels);
                 }

@@ -35,7 +35,7 @@ public class MainActivity extends FragmentActivity
 		mIndicator.setTabItemTitles(mDatas);
 		mViewPager.setAdapter(mAdapter);
 		//设置关联的ViewPager
-		mIndicator.setViewPager(mViewPager,0);
+		mIndicator.setViewPager(mViewPager,2);
 
 	}
 
