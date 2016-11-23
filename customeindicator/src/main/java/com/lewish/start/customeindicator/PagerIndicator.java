@@ -1,6 +1,7 @@
 package com.lewish.start.customeindicator;
 
 import android.content.Context;
+import android.content.res.TypedArray;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.CornerPathEffect;
@@ -23,10 +24,12 @@ import java.util.List;
  */
 
 public class PagerIndicator extends LinearLayout {
+    private static final int COUNT_DEFAULT_TAB = 2;
+    private static final String REACH_COLOR = "#d20000";
+    private static final String UNREACH_COLOR = "#c0c2c6";
     private Paint mPaint;
     private Path mPath;
-    private static final int COUNT_DEFAULT_TAB = 2;
-    private int mTabVisibleCount = COUNT_DEFAULT_TAB;
+    private int mTabVisibleCount;
     private int tabWidth;
     private int tabHeight;
 
@@ -35,8 +38,9 @@ public class PagerIndicator extends LinearLayout {
     private int mTrangleInitTranslationX;
     private int mTrangleTranslationX;
     private static final float RADIO_TRIANGLE_WIDTH = 1/3f;
-    private static final String COLOR_LINE_REACH = "#d20000";
-    private static final String COLOR_LINE_UNREACH = "#44000000";
+    private int mReachColor;
+    private int mUnReachColor;
+
 
     private int mLineWidth;
     private int mLineHeight;
@@ -45,9 +49,6 @@ public class PagerIndicator extends LinearLayout {
 
     private ViewPager mViewPager;
     private OnPageChangeListener mOnPageChangeListener;
-
-    private static final String COLOR_TEXT_NORMAL = "#000000";
-    private static final String COLOR_TEXT_HIGHLIGHTCOLOR = "#d20000";
     private List<String> mTabTitles;
 
 
@@ -57,6 +58,11 @@ public class PagerIndicator extends LinearLayout {
 
     public PagerIndicator(Context context, AttributeSet attrs) {
         super(context, attrs);
+        TypedArray typedArray = context.obtainStyledAttributes(attrs,
+                R.styleable.PagerIndicator);
+        mReachColor = typedArray.getColor(R.styleable.PagerIndicator_reachColor,Color.parseColor(REACH_COLOR));
+        mUnReachColor = typedArray.getColor(R.styleable.PagerIndicator_unReachColor,Color.parseColor(UNREACH_COLOR));
+        mTabVisibleCount = typedArray.getInteger(R.styleable.PagerIndicator_visibleCount,COUNT_DEFAULT_TAB);
         tabWidth = getScreenWidth()/mTabVisibleCount;
         initPaint();
     }
@@ -101,10 +107,10 @@ public class PagerIndicator extends LinearLayout {
     protected void dispatchDraw(Canvas canvas) {
         mPaint.setStrokeWidth(mLineHeight);
         //画灰线
-        mPaint.setColor(Color.parseColor(COLOR_LINE_UNREACH));
+        mPaint.setColor(mUnReachColor);
         canvas.drawLine(0,tabHeight-mTriangleHeight,tabWidth*childCount,tabHeight-mTriangleHeight,mPaint);
         //画红线
-        mPaint.setColor(Color.parseColor(COLOR_LINE_REACH));
+        mPaint.setColor(mReachColor);
         canvas.drawLine(mLineTranslationX,tabHeight-mTriangleHeight,mLineTranslationX+tabWidth,tabHeight-mTriangleHeight,mPaint);
         //画三角
         canvas.save();
@@ -170,7 +176,7 @@ public class PagerIndicator extends LinearLayout {
                 LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT);
         lp.width = getScreenWidth() / mTabVisibleCount;
         tv.setGravity(Gravity.CENTER);
-        tv.setTextColor(Color.parseColor(COLOR_TEXT_NORMAL));
+        tv.setTextColor(mUnReachColor);
         tv.setText(text);
         tv.setTextSize(TypedValue.COMPLEX_UNIT_SP, 16);
         tv.setLayoutParams(lp);
@@ -184,7 +190,7 @@ public class PagerIndicator extends LinearLayout {
     protected void highLightTextView(int position) {
         View view = getChildAt(position);
         if (view instanceof TextView) {
-            ((TextView) view).setTextColor(Color.parseColor(COLOR_TEXT_HIGHLIGHTCOLOR));
+            ((TextView) view).setTextColor(mReachColor);
         }
     }
     /**
@@ -194,7 +200,7 @@ public class PagerIndicator extends LinearLayout {
         for (int i = 0; i < getChildCount(); i++) {
             View view = getChildAt(i);
             if (view instanceof TextView) {
-                ((TextView) view).setTextColor(Color.parseColor(COLOR_TEXT_NORMAL));
+                ((TextView) view).setTextColor(mUnReachColor);
             }
         }
     }

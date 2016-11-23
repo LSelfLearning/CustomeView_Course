@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="PagerIndicator">
+        <attr name="reachColor" format="color"/>
+        <attr name="unReachColor" format="color"/>
+        <attr name="visibleCount" format="integer"/>
+    </declare-styleable>
+</resources>

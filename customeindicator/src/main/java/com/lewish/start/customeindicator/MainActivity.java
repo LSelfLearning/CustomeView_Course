@@ -28,6 +28,7 @@ public class MainActivity extends AppCompatActivity {
         }
         mContentAdapter = new ContentAdapter(this,getSupportFragmentManager(),mContentFragments);
         mViewPager.setAdapter(mContentAdapter);
+
         mPagerIndicator.setTabVisibleCount(2);
         mPagerIndicator.setTabItemTitles(mTitles);
         mPagerIndicator.setUpWithViewPager(mViewPager,1);
