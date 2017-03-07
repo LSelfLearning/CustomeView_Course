@@ -9,17 +9,30 @@
         <attr name="textSize" format="dimension" />
         <attr name="max" format="integer" />
         <attr name="textIsDisplayable" format="boolean" />
+        <attr name="mProgress" format="integer"/>
         <attr name="style">
             <enum name="STROKE" value="0" />
             <enum name="FILL" value="1" />
         </attr>
     </declare-styleable>
-    <declare-styleable name="ClockView">
+
+    <declare-styleable name="MyClockView">
         <attr name="progressReachColor" format="color"/>
         <attr name="progressUnReachColor" format="color"/>
         <attr name="strokeWidth" format="dimension"/>
         <attr name="strokeLength" format="dimension"/>
         <attr name="totalDotNum" format="integer"/>
-        <attr name="progress" format="integer"/>
+        <attr name="animTime" format="integer"/>
+        <attr name="mprogress" format="integer"/>
+    </declare-styleable>
+
+    <declare-styleable name="ClockView">
+        <attr name="cprogressReachColor" format="color"/>
+        <attr name="cprogressUnReachColor" format="color"/>
+        <attr name="cstrokeWidth" format="dimension"/>
+        <attr name="cstrokeLength" format="dimension"/>
+        <attr name="ctotalDotNum" format="integer"/>
+        <attr name="cprogress" format="integer"/>
+        <attr name="canimTime" format="integer"/>
     </declare-styleable>
 </resources>

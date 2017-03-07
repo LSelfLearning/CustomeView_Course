@@ -31,7 +31,7 @@ public class RoundProgressBar extends View {
     // 最大进度
     private int max;
     // 当前进度
-    private float progress;
+    private float mProgress;
     // 状态
     private int status;
     // 类型 债权， 银多利
@@ -105,11 +105,11 @@ public class RoundProgressBar extends View {
         paint.setColor(textColor);
         paint.setTextSize(textSize);
         paint.setTypeface(Typeface.DEFAULT_BOLD); //设置字体
-//        float percent = (((float) progress / (float) max) * 100);  //中间的进度百分比，先转换成float在进行除法运算，不然都为0
-        float percent = progress;
+//        float percent = (((float) mProgress / (float) max) * 100);  //中间的进度百分比，先转换成float在进行除法运算，不然都为0
+        float percent = mProgress;
         String content = "";
         if (!TextUtils.isEmpty(content) && percent <= 0) {
-            progress = max;
+            mProgress = max;
         }
         if (TextUtils.isEmpty(content)) {
             content = Utils.formatDouble(percent) + "%";
@@ -127,18 +127,18 @@ public class RoundProgressBar extends View {
         switch (style) {
             case STROKE: {
                 paint.setStyle(Paint.Style.STROKE);
-                canvas.drawArc(oval, -90, 360 * progress / max, false, paint);  //根据进度画圆弧
+                canvas.drawArc(oval, -90, 360 * mProgress / max, false, paint);  //根据进度画圆弧
                 break;
             }
             case FILL: {
                 paint.setStyle(Paint.Style.FILL_AND_STROKE);
-                if (progress != 0)
-                    canvas.drawArc(oval, 0, 360 * progress / max, true, paint);  //根据进度画圆弧
+                if (mProgress != 0)
+                    canvas.drawArc(oval, 0, 360 * mProgress / max, true, paint);  //根据进度画圆弧
                 break;
             }
         }
         //画小圆
-        double degress = 2*Math.PI * progress / max;
+        double degress = 2*Math.PI * mProgress / max;
         float x = (float) ((radius)* (1 + Math.sin(degress))+padding);
         float y = (float) ((radius) * (1 - Math.cos(degress))+padding);
         paint.setColor(rotateRoundColor); //设置圆环的颜色
@@ -147,19 +147,6 @@ public class RoundProgressBar extends View {
         paint.setStrokeWidth(0); //设置圆环的宽度
         paint.setAntiAlias(true);  //消除锯齿
         canvas.drawCircle(x, y, radius*RADIO_CIRCLE_WIDTH, paint); //画出圆环
-    }
-
-    public void dynamicDraw(float progress){
-        valueAnimator = ValueAnimator.ofFloat(0,progress);
-        valueAnimator.setDuration(3000);
-        valueAnimator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
-            @Override
-            public void onAnimationUpdate(ValueAnimator animation) {
-                float animatedValue = (float) animation.getAnimatedValue();
-                setProgress(animatedValue);
-            }
-        });
-        valueAnimator.start();
     }
 
     public synchronized int getMax() {
@@ -184,7 +171,7 @@ public class RoundProgressBar extends View {
      * @return
      */
     public synchronized float getProgress() {
-        return progress;
+        return mProgress;
     }
 
     /**
@@ -195,14 +182,23 @@ public class RoundProgressBar extends View {
      */
     public synchronized void setProgress(float progress) {
         if (progress < 0) {
-            throw new IllegalArgumentException("progress not less than 0");
+            throw new IllegalArgumentException("mProgress not less than 0");
         }
         if (progress > max) {
             progress = max;
         }
         if (progress <= max) {
-            this.progress = Float.valueOf(Utils.formatDouble((double) progress));
-            postInvalidate();
+            mProgress = Float.valueOf(Utils.formatDouble((double) progress));
+            valueAnimator = ValueAnimator.ofFloat(0,this.mProgress);
+            valueAnimator.setDuration(3000);
+            valueAnimator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
+                @Override
+                public void onAnimationUpdate(ValueAnimator animation) {
+                    mProgress = (float) animation.getAnimatedValue();
+                    postInvalidate();
+                }
+            });
+            valueAnimator.start();
         }
     }
 

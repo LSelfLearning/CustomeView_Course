@@ -35,12 +35,12 @@ public class ClockView extends View {
         super(context, attrs);
         TypedArray typedArray = context.obtainStyledAttributes(attrs,
                 R.styleable.ClockView);
-        mReachColor = typedArray.getColor(R.styleable.ClockView_progressReachColor, Color.parseColor("#d20000"));
-        mUnReachColor = typedArray.getColor(R.styleable.ClockView_progressUnReachColor, Color.parseColor("#b9babc"));
-        mStrokeWidth = (int) typedArray.getDimension(R.styleable.ClockView_strokeWidth, dp2px(4));
-        mStrokeLength = (int) typedArray.getDimension(R.styleable.ClockView_strokeLength,dp2px(8));
-        mTotalDotNum = typedArray.getInteger(R.styleable.ClockView_totalDotNum,36);
-        mProgress = typedArray.getInteger(R.styleable.ClockView_progress,24);
+        mReachColor = typedArray.getColor(R.styleable.ClockView_cprogressReachColor, Color.parseColor("#d20000"));
+        mUnReachColor = typedArray.getColor(R.styleable.ClockView_cprogressUnReachColor, Color.parseColor("#b9babc"));
+        mStrokeWidth = (int) typedArray.getDimension(R.styleable.ClockView_cstrokeWidth, dp2px(4));
+        mStrokeLength = (int) typedArray.getDimension(R.styleable.ClockView_cstrokeLength,dp2px(8));
+        mTotalDotNum = typedArray.getInteger(R.styleable.ClockView_ctotalDotNum,36);
+        mProgress = typedArray.getInteger(R.styleable.ClockView_cprogress,24);
         typedArray.recycle();
 
         mPaint = new Paint();

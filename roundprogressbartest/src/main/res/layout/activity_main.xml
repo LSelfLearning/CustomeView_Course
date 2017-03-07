@@ -45,11 +45,11 @@
         app:textColor="#d51515"
         app:rotateRoundColor="#f0cb82"
         app:textSize="@dimen/x24"/>
-
     <com.lewish.start.roundprogressbartest.MyClockView
         android:id="@+id/my_clockview"
         android:layout_width="@dimen/x200"
         android:layout_height="@dimen/y200"
         android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        app:mProgress="50"/>
 </RelativeLayout>

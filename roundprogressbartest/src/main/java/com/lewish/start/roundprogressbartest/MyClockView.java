@@ -31,6 +31,7 @@ public class MyClockView extends RelativeLayout {
     private int mDiameter;
     private int mTotalDotNum;
     private int mProgress;
+    private int mAnimTime;
     private ValueAnimator valueAnimator;
 
     public MyClockView(Context context) {
@@ -53,12 +54,13 @@ public class MyClockView extends RelativeLayout {
     private void initFromXml(Context context, AttributeSet attrs) {
         TypedArray typedArray = context.obtainStyledAttributes(attrs,
                 R.styleable.ClockView);
-        mReachColor = typedArray.getColor(R.styleable.ClockView_progressReachColor, Color.parseColor("#d20000"));
-        mUnReachColor = typedArray.getColor(R.styleable.ClockView_progressUnReachColor, Color.parseColor("#b9babc"));
-        mStrokeWidth = (int) typedArray.getDimension(R.styleable.ClockView_strokeWidth, dp2px(4));
-        mStrokeLength = (int) typedArray.getDimension(R.styleable.ClockView_strokeLength,dp2px(8));
-        mTotalDotNum = typedArray.getInteger(R.styleable.ClockView_totalDotNum,36);
-        mProgress = typedArray.getInteger(R.styleable.ClockView_progress,24);
+        mReachColor = typedArray.getColor(R.styleable.MyClockView_progressReachColor, Color.parseColor("#d20000"));
+        mUnReachColor = typedArray.getColor(R.styleable.MyClockView_progressUnReachColor, Color.parseColor("#b9babc"));
+        mStrokeWidth = (int) typedArray.getDimension(R.styleable.MyClockView_strokeWidth, dp2px(4));
+        mStrokeLength = (int) typedArray.getDimension(R.styleable.MyClockView_strokeLength,dp2px(8));
+        mTotalDotNum = typedArray.getInteger(R.styleable.MyClockView_totalDotNum,36);
+        mProgress = typedArray.getInteger(R.styleable.MyClockView_mprogress,24);
+        mAnimTime=typedArray.getInteger(R.styleable.MyClockView_animTime,3000);
         typedArray.recycle();
     }
 
@@ -88,18 +90,6 @@ public class MyClockView extends RelativeLayout {
         mDiameter = Math.min(mWidth - getPaddingLeft() - getPaddingRight(), mHeight - getPaddingTop() - getPaddingBottom());
     }
 
-    public void dynamicDraw(int progress,int animTime){
-        valueAnimator = ValueAnimator.ofInt(0,progress);
-        valueAnimator.setDuration(animTime);
-        valueAnimator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
-            @Override
-            public void onAnimationUpdate(ValueAnimator animation) {
-                int animatedValue = (int) animation.getAnimatedValue();
-                setProgress(animatedValue);
-            }
-        });
-        valueAnimator.start();
-    }
     protected int dp2px(int dpVal) {
         return (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP,
                 dpVal, getResources().getDisplayMetrics());
@@ -107,7 +97,16 @@ public class MyClockView extends RelativeLayout {
 
     public void setProgress(int progress) {
         mProgress = (int) ((progress/100.0)* mTotalDotNum);
-        postInvalidate();
+        valueAnimator = ValueAnimator.ofInt(0,mProgress);
+        valueAnimator.setDuration(mAnimTime);
+        valueAnimator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
+            @Override
+            public void onAnimationUpdate(ValueAnimator animation) {
+                mProgress = (int) animation.getAnimatedValue();
+                postInvalidate();
+            }
+        });
+        valueAnimator.start();
     }
     @Override
     protected void onDetachedFromWindow() {
